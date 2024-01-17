@@ -6,14 +6,20 @@ var GridSizeX = randi_range(8, 30);
 var GridSizeY = randi_range(8, 14);
 var Dic = {}; 
 var Map_Marker_Start_and_Goal;
+var cell_size =Vector2i(64, 64);
 var astar_grid = AStarGrid2D.new()
+
+
 func _ready():
 	var gx = GridSizeX;
 	var gy =  GridSizeY;
 	print(gx, ",", gy);
-	astar_grid.region = Rect2i(0, 0, gx, gy)
-	astar_grid.cell_size = Vector2(64, 64)
-	astar_grid.update()
+	astar_grid.region = Rect2i(0, 0, gx, gy);
+	astar_grid.cell_size = cell_size;
+	astar_grid.offset = cell_size / 2;
+	
+
+	astar_grid.update();
 	Map_Marker_Start_and_Goal= setGoalAndStart(gx,gy, astar_grid);
 	
 	for x in gx:
@@ -67,7 +73,9 @@ func calculatePath():
 	var start_cell = Map_Marker_Start_and_Goal[0];
 	var end_cell = Map_Marker_Start_and_Goal[1];
 	
-	var id_path = astar_grid.get_id_path(start_cell, end_cell)
+	var id_path = astar_grid.get_id_path(start_cell, end_cell) 
+	
+
 	for id in id_path:
 		set_cell(0, id, 2, Vector2(0, 0),0)
 	emit_signal("PathCalculated", id_path )

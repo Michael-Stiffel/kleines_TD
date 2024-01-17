@@ -19,7 +19,8 @@ func _process(delta):
 
 func _on_tile_map_path_calculated(Message):
 	PathPoints = Message;
+	print(Message);
 	curve.clear_points()
 	for x in PathPoints:
-		curve.add_point(x*64)
+		curve.add_point((x*64) + (Vector2i(32,32)))
 	pass # Replace with function body.
