@@ -17,8 +17,6 @@ func _ready():
 	astar_grid.region = Rect2i(0, 0, gx, gy);
 	astar_grid.cell_size = cell_size;
 	astar_grid.offset = cell_size / 2;
-	
-
 	astar_grid.update();
 	Map_Marker_Start_and_Goal= setGoalAndStart(gx,gy, astar_grid);
 	

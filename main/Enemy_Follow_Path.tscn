@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dcudob8drr1op"]
+
+[ext_resource type="Script" path="res://PathFollow2D.gd" id="1_d6jbv"]
+[ext_resource type="Texture2D" uid="uid://bq0o2p8y6vbxa" path="res://res/PNG/Schabe.png" id="2_i4jtm"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_frfx1"]
+
+[node name="PathFollow2D" type="PathFollow2D"]
+material = SubResource("CanvasItemMaterial_frfx1")
+script = ExtResource("1_d6jbv")
+
+[node name="Schabe_Node" type="Node2D" parent="."]
+
+[node name="Schabe_Sprite" type="Sprite2D" parent="Schabe_Node"]
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("2_i4jtm")
+
+[node name="_Timer_17461" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true

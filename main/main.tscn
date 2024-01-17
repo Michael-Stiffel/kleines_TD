@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=20 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -9,8 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://bbu7la5ybu2o1" path="res://res/PNG/Ziel.png" id="6_13q05"]
 [ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
 [ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="10_avm23"]
-[ext_resource type="Texture2D" uid="uid://bq0o2p8y6vbxa" path="res://res/PNG/Schabe.png" id="11_q8rgv"]
+[ext_resource type="PackedScene" uid="uid://dcudob8drr1op" path="res://Enemy_Follow_Path.tscn" id="10_3hudi"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
 texture = ExtResource("1_fs2nw")
@@ -59,8 +58,6 @@ sources/6 = SubResource("TileSetAtlasSource_w6dd7")
 
 [sub_resource type="Curve2D" id="Curve2D_qotbj"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_frfx1"]
-
 [node name="Node2D" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -82,16 +79,7 @@ top_level = true
 curve = SubResource("Curve2D_qotbj")
 script = ExtResource("9_d2r05")
 
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-material = SubResource("CanvasItemMaterial_frfx1")
-script = ExtResource("10_avm23")
-
-[node name="Sprite2D" type="Sprite2D" parent="Path2D/PathFollow2D"]
-scale = Vector2(0.7, 0.7)
-texture = ExtResource("11_q8rgv")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-offset = Vector2(-128, -128)
-anchor_mode = 0
+[node name="PathFollow2D" parent="Path2D" instance=ExtResource("10_3hudi")]
+loop = false
 
 [connection signal="PathCalculated" from="TileMap" to="Path2D" method="_on_tile_map_path_calculated"]
