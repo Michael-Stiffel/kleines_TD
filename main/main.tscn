@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=21 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
 [ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
 [ext_resource type="PackedScene" uid="uid://dcudob8drr1op" path="res://Enemy_Follow_Path.tscn" id="10_3hudi"]
+[ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
 texture = ExtResource("1_fs2nw")
@@ -58,9 +59,17 @@ sources/6 = SubResource("TileSetAtlasSource_w6dd7")
 
 [sub_resource type="Curve2D" id="Curve2D_qotbj"]
 
-[node name="Node2D" type="Node2D"]
+[node name="Main" type="Node2D"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-64, -64)
+anchor_mode = 0
+
+[node name="HP_Count" parent="Camera2D" instance=ExtResource("11_c112h")]
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Node2D"]
 tile_set = SubResource("TileSet_dq8oi")
 format = 2
 layer_0/name = "Hinten"
@@ -72,14 +81,15 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("5_xpysc")
 
-[node name="Path2D" type="Path2D" parent="."]
+[node name="Path2D" type="Path2D" parent="Node2D"]
 modulate = Color(1, 0, 0, 1)
 show_behind_parent = true
 top_level = true
 curve = SubResource("Curve2D_qotbj")
 script = ExtResource("9_d2r05")
 
-[node name="PathFollow2D" parent="Path2D" instance=ExtResource("10_3hudi")]
+[node name="PathFollow2D" parent="Node2D/Path2D" instance=ExtResource("10_3hudi")]
 loop = false
 
-[connection signal="PathCalculated" from="TileMap" to="Path2D" method="_on_tile_map_path_calculated"]
+[connection signal="PathCalculated" from="Node2D/TileMap" to="Node2D/Path2D" method="_on_tile_map_path_calculated"]
+[connection signal="get_HP_Damage" from="Node2D/Path2D/PathFollow2D" to="Camera2D/HP_Count" method="_on_path_follow_2d_get_hp_damage"]

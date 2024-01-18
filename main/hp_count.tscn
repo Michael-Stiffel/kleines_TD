@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://dpvqxxsv5nxp7"]
+
+[ext_resource type="Script" path="res://HP_Counter.gd" id="1_a2qxd"]
+
+[node name="HP_Count" type="Label"]
+offset_left = 2048.0
+offset_top = 64.0
+offset_right = 2240.0
+offset_bottom = 128.0
+text = "miau"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("1_a2qxd")

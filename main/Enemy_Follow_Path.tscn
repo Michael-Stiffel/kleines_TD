@@ -14,7 +14,3 @@ script = ExtResource("1_d6jbv")
 [node name="Schabe_Sprite" type="Sprite2D" parent="Schabe_Node"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_i4jtm")
-
-[node name="_Timer_17461" type="Timer" parent="."]
-wait_time = 0.2
-one_shot = true

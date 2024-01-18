@@ -36,7 +36,7 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-- Spawner für Viecher erstellen 
+
 - GUI für eigene HP der Basis und Scahden pro Vieh einsetzten
 - Losingstate erstellen 
 - Türme setzten können, GUI fürs bauen
@@ -67,3 +67,4 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Map wird in sehr primitiver Form generiert(Grastiles, Start, Ziel und Steinborder)
 - Pfad von Start nach Ziel wird berechent
 - Sehr primitiv folgen dummys dem Pfad
+- Spawner für Viecher erstellen 
