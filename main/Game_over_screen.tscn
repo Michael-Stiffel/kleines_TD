@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cep3gwvwakol3"]
+
+[ext_resource type="Script" path="res://Game_over_screen.gd" id="1_ri703"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i5yqb"]
+bg_color = Color(0.254902, 0.254902, 0.254902, 1)
+border_width_left = 10
+border_width_top = 10
+border_width_right = 10
+border_width_bottom = 10
+border_color = Color(0, 0, 0, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_7js4r"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xe1n1"]
+bg_color = Color(0.682353, 0.00392157, 0.258824, 1)
+
+[sub_resource type="SystemFont" id="SystemFont_mnmui"]
+
+[sub_resource type="SystemFont" id="SystemFont_8egou"]
+
+[node name="GameOverScreen" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_ri703")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_i5yqb")
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="Rows" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 300
+
+[node name="Titel" type="Label" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_7js4r")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxFlat_xe1n1")
+text = "YOU SUCK "
+horizontal_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="PanelContainer/MarginContainer/Rows"]
+layout_mode = 2
+
+[node name="Buttons" type="VBoxContainer" parent="PanelContainer/MarginContainer/Rows/CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 60
+
+[node name="RestartButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_mnmui")
+theme_override_font_sizes/font_size = 80
+text = "  TRY AGAIN  "
+
+[node name="QuitButton" type="Button" parent="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("SystemFont_8egou")
+theme_override_font_sizes/font_size = 80
+text = "  QUIT  "
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/Rows/CenterContainer/Buttons/QuitButton" to="." method="_on_quit_button_pressed"]

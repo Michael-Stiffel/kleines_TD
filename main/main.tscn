@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=22 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
 [ext_resource type="PackedScene" uid="uid://dcudob8drr1op" path="res://Enemy_Follow_Path.tscn" id="10_3hudi"]
 [ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
+[ext_resource type="PackedScene" uid="uid://cep3gwvwakol3" path="res://Game_over_screen.tscn" id="12_sxnb2"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
 texture = ExtResource("1_fs2nw")
@@ -90,6 +91,9 @@ script = ExtResource("9_d2r05")
 
 [node name="PathFollow2D" parent="Node2D/Path2D" instance=ExtResource("10_3hudi")]
 loop = false
+
+[node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
+visible = false
 
 [connection signal="PathCalculated" from="Node2D/TileMap" to="Node2D/Path2D" method="_on_tile_map_path_calculated"]
 [connection signal="get_HP_Damage" from="Node2D/Path2D/PathFollow2D" to="Camera2D/HP_Count" method="_on_path_follow_2d_get_hp_damage"]
