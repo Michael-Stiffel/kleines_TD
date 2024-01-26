@@ -13,7 +13,8 @@ var astar_grid = AStarGrid2D.new()
 func _ready():
 	var gx = GridSizeX;
 	var gy =  GridSizeY;
-	print(gx, ",", gy);
+	#print(gx, ",", gy);
+	astar_grid.diagonal_mode = AStarGrid2D.DIAGONAL_MODE_AT_LEAST_ONE_WALKABLE
 	astar_grid.region = Rect2i(0, 0, gx, gy);
 	astar_grid.cell_size = cell_size;
 	astar_grid.offset = cell_size / 2;
@@ -54,13 +55,13 @@ func _process(delta):
 		set_cell(1, tile, 4, Vector2i(0,0),0)
 		#"print(Dic[str(tile)])"
 		#print(tile)
-		#print(astar_grid.is_point_solid(Vector2i(tile)));
+		print(astar_grid.is_point_solid(Vector2i(tile)));
 		
 
 func setGoalAndStart(x,y,astar_grid):
 	var StartPoint = Vector2(randi_range(1,x-2),randi_range(1,y-2))
 	var EndPoint = Vector2(randi_range(1,x-2),randi_range(1,y-2))
-	print("ICH BIN DER START", StartPoint)
+	#print("ICH BIN DER START", StartPoint)
 	set_cell(2,StartPoint,0, Vector2i(0,0),0);
 	set_cell(2,EndPoint,5, Vector2i(0,0),0);
 	return [StartPoint, EndPoint];

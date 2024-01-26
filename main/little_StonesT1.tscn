@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cpw5qosastciv"]
+
+[ext_resource type="Texture2D" uid="uid://bg546abs36d1t" path="res://res/PNG/shit_background.png" id="1_kqpif"]
+[ext_resource type="Texture2D" uid="uid://brm50h4n13iem" path="res://res/PNG/shit_background_clicked.png" id="2_huw14"]
+[ext_resource type="Texture2D" uid="uid://niub155wa73n" path="res://res/PNG/shit_background_hover.png" id="3_lnjcx"]
+
+[node name="little_Stones" type="TextureButton" groups=["build_buttons"]]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_kqpif")
+texture_pressed = ExtResource("2_huw14")
+texture_hover = ExtResource("3_lnjcx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

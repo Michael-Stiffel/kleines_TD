@@ -37,8 +37,7 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 ### Todo: 
 
 
-- GUI für eigene HP der Basis und Scahden pro Vieh einsetzten
-- Losingstate erstellen 
+
 - Türme setzten können, GUI fürs bauen
 - Pfad soll auf Türme reagieren und festellenn falls ein Turm den letztzen möglichen Weg versperrt
 - Türme sollen gegner angreifen (ATK von Türmen,. HP von gegnern etc.)
@@ -68,3 +67,5 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Pfad von Start nach Ziel wird berechent
 - Sehr primitiv folgen dummys dem Pfad
 - Spawner für Viecher erstellen 
+- GUI für eigene HP der Basis und Scahden pro Vieh einsetzten
+- Losingstate erstellen 

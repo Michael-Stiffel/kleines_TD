@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://bn8vpbryol4fp"]
+
+[ext_resource type="Texture2D" uid="uid://dtq5thoji13v1" path="res://res/PNG/FUCKING_TOWER.png" id="4_47df5"]
+
+[node name="TurretT1" type="Node2D"]
+
+[node name="Turret" type="Sprite2D" parent="."]
+position = Vector2(64, 64)
+texture = ExtResource("4_47df5")
