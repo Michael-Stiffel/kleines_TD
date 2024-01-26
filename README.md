@@ -38,8 +38,6 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 
 
-- Türme setzten können, GUI fürs bauen
-- Pfad soll auf Türme reagieren und festellenn falls ein Turm den letztzen möglichen Weg versperrt
 - Türme sollen gegner angreifen (ATK von Türmen,. HP von gegnern etc.)
 - Prozedural Wellen generieren
 - Eco aufbauen  
@@ -68,4 +66,6 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Sehr primitiv folgen dummys dem Pfad
 - Spawner für Viecher erstellen 
 - GUI für eigene HP der Basis und Scahden pro Vieh einsetzten
-- Losingstate erstellen 
+- Losingstate erstellen
+- Türme setzten können, GUI fürs bauen
+- Pfad soll auf Türme reagieren und festellenn falls ein Turm den letztzen möglichen Weg versperrt
