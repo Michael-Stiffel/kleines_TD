@@ -43,11 +43,25 @@ func cancle_build_mode():
 	get_node("Build_Menue/TowerPreview").queue_free()
 
 func verify_and_build():
+	
+	var map_dic = map_node.get_MapDic()
+	var mapX = map_node.get_MapX()
+	var mapY = map_node.get_MapY()
+	var new_tower = load("res://"+ build_type +".tscn").instantiate()
+	var mouse_posi = get_global_mouse_position() 
+	var current_tile = map_node.local_to_map(mouse_posi)
+	var tile_position = map_node.map_to_local(current_tile)
+	
+	if current_tile[0] >= mapX ||  current_tile[1] >= mapY :
+		build_valid = false
+		return
+	
+	if map_dic[str(current_tile)]["Buildable"]:
+		build_valid = true
+	else:
+		build_valid = false
+		
 	if build_valid: # da muss ich noch gucken wie das aussieht mit der live berrechneung 
-		var new_tower = load("res://"+ build_type +".tscn").instantiate()
-		var mouse_posi = get_global_mouse_position() 
-		var current_tile = map_node.local_to_map(mouse_posi)
-		var tile_position = map_node.map_to_local(current_tile)
 		new_tower.position = Vector2(build_location.x - 64,build_location.y - 64)
 		map_node.add_child(new_tower,true)
 		map_node.astar_grid.set_point_solid(current_tile, true)

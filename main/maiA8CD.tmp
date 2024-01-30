@@ -1,0 +1,104 @@
+[gd_scene load_steps=24 format=3 uid="uid://r8osy4i3w4k"]
+
+[ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
+[ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
+[ext_resource type="Script" path="res://main.gd" id="1_lyh7m"]
+[ext_resource type="Texture2D" uid="uid://dssulafonirs7" path="res://res/PNG/SHIT_WAY.png" id="2_bstxu"]
+[ext_resource type="Texture2D" uid="uid://dtq5thoji13v1" path="res://res/PNG/FUCKING_TOWER.png" id="3_q8qi3"]
+[ext_resource type="Texture2D" uid="uid://c5vixn5soa757" path="res://res/PNG/Select_Rahmen.png" id="4_ddoo7"]
+[ext_resource type="Script" path="res://TileMap.gd" id="5_xpysc"]
+[ext_resource type="Texture2D" uid="uid://bbu7la5ybu2o1" path="res://res/PNG/Ziel.png" id="6_13q05"]
+[ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
+[ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
+[ext_resource type="PackedScene" uid="uid://dcudob8drr1op" path="res://Enemy_Follow_Path.tscn" id="10_3hudi"]
+[ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
+[ext_resource type="PackedScene" uid="uid://cep3gwvwakol3" path="res://Game_over_screen.tscn" id="12_sxnb2"]
+[ext_resource type="PackedScene" uid="uid://b58sgtyvwbkoe" path="res://build_menue.tscn" id="13_orkcu"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
+texture = ExtResource("1_fs2nw")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_qgdj1"]
+texture = ExtResource("1_7vqce")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ankiq"]
+texture = ExtResource("2_bstxu")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_juanb"]
+texture = ExtResource("3_q8qi3")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gw20l"]
+texture = ExtResource("4_ddoo7")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3m5xr"]
+texture = ExtResource("6_13q05")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_w6dd7"]
+texture = ExtResource("7_wh6uy")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_dq8oi"]
+tile_size = Vector2i(64, 64)
+sources/1 = SubResource("TileSetAtlasSource_qgdj1")
+sources/2 = SubResource("TileSetAtlasSource_ankiq")
+sources/3 = SubResource("TileSetAtlasSource_juanb")
+sources/4 = SubResource("TileSetAtlasSource_gw20l")
+sources/0 = SubResource("TileSetAtlasSource_y77m0")
+sources/5 = SubResource("TileSetAtlasSource_3m5xr")
+sources/6 = SubResource("TileSetAtlasSource_w6dd7")
+
+[sub_resource type="Curve2D" id="Curve2D_qotbj"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_lyh7m")
+
+[node name="Build_Menue" parent="." instance=ExtResource("13_orkcu")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(-64, -64)
+anchor_mode = 0
+
+[node name="HP_Count" parent="Camera2D" instance=ExtResource("11_c112h")]
+
+[node name="Map_Node" type="Node2D" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Map_Node"]
+tile_set = SubResource("TileSet_dq8oi")
+format = 2
+layer_0/name = "Hinten"
+layer_1/name = "Vorne"
+layer_1/z_index = 2
+layer_1/tile_data = PackedInt32Array()
+layer_2/name = "tower"
+layer_2/z_index = 1
+layer_2/tile_data = PackedInt32Array()
+script = ExtResource("5_xpysc")
+
+[node name="Path2D" type="Path2D" parent="Map_Node"]
+modulate = Color(1, 0, 0, 1)
+show_behind_parent = true
+top_level = true
+curve = SubResource("Curve2D_qotbj")
+script = ExtResource("9_d2r05")
+
+[node name="PathFollow2D" parent="Map_Node/Path2D" instance=ExtResource("10_3hudi")]
+loop = false
+
+[node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
+visible = false
+
+[connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]
+[connection signal="get_HP_Damage" from="Map_Node/Path2D/PathFollow2D" to="Camera2D/HP_Count" method="_on_path_follow_2d_get_hp_damage"]
