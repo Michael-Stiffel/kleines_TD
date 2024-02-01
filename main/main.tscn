@@ -95,10 +95,9 @@ curve = SubResource("Curve2D_qotbj")
 script = ExtResource("9_d2r05")
 
 [node name="PathFollow2D" parent="Map_Node/Path2D" instance=ExtResource("10_3hudi")]
-loop = false
+progress = 0.0
 
 [node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
 visible = false
 
 [connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]
-[connection signal="get_HP_Damage" from="Map_Node/Path2D/PathFollow2D" to="Camera2D/HP_Count" method="_on_path_follow_2d_get_hp_damage"]

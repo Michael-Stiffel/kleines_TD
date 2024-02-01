@@ -1,18 +1,30 @@
-extends Node2D
-signal HP_Count 
-var HP ;
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	HP = 100;
-	
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	HP = HP
+extends Node 
+
+var enemy_data={
+	"Schabe":{
+		"damage" : 1,
+		"health": 20,
+		"speed" :100,
+	},
+}
 
 
-func get_HP_Damage(Damage):
-	HP = HP-Damage; 
-	print("meine HP sind : ")
-	print(HP)
-	emit_signal("HP_Count",HP);
+var tower_data ={
+	"TurretT1":{
+		"damage": 10,
+		"range" : 200,
+		"attackspeed" : 1 # 1 mal pro sekunde
+		
+	},
+	"CavemanTower":{
+		"damage": 30,
+		"range" : 100,
+		"attackspeed" : 2 # 1 mal pro 2 skeunden 
+	},
+}
 
+func get_tower_data():
+	return tower_data
+
+func get_enemy_data():
+	return enemy_data

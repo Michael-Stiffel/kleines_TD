@@ -24,6 +24,8 @@ func _unhandled_input(event):
 		cancle_build_mode()
 
 func initiate_build_mode(tower_type):
+	if build_mode:
+		cancle_build_mode()
 	build_type = tower_type + "T1" #T1 packen wir hinten dran weil wir prinzipiell immer erstmal einen Tier 1 Tower bauen 
 	build_mode = true;
 	var tile = get_global_mouse_position() 
@@ -40,7 +42,7 @@ func update_tower_preview():
 func cancle_build_mode():
 	build_mode = false
 	build_valid = false
-	get_node("Build_Menue/TowerPreview").queue_free()
+	get_node("Build_Menue/TowerPreview").free()
 
 func verify_and_build():
 	
@@ -64,5 +66,7 @@ func verify_and_build():
 	if build_valid: # da muss ich noch gucken wie das aussieht mit der live berrechneung 
 		new_tower.position = Vector2(build_location.x - 64,build_location.y - 64)
 		map_node.add_child(new_tower,true)
+		new_tower.fire_ready = true
 		map_node.astar_grid.set_point_solid(current_tile, true)
+		map_dic[str(current_tile)]["Buildable"] = false
 		map_node.calculatePath()

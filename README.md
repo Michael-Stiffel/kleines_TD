@@ -39,8 +39,6 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 
 - Türme sollen gegner angreifen (ATK von Türmen,. HP von gegnern etc.)
-- Türme dürfen nicht auf den STart und das Ziel gesetzt werden, allgemeion brauchen wir einen "buildable" state 
-  der dann gecheckt wird ob da ein Tower hin kann(nicht auif den Rand der MAp bauen, nicht auf start und Ziel und nicht ausserhalb der Karte) 
 - Prozedural Wellen generieren
 - Eco aufbauen  
 - Tower soll Upgrades bekommen
@@ -71,3 +69,5 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Losingstate erstellen
 - Türme setzten können, GUI fürs bauen
 - Pfad soll auf Türme reagieren und festellenn falls ein Turm den letztzen möglichen Weg versperrt
+- Türme dürfen nicht auf den STart und das Ziel gesetzt werden, allgemeion brauchen wir einen "buildable" state 
+  der dann gecheckt wird ob da ein Tower hin kann(nicht auif den Rand der MAp bauen, nicht auf start und Ziel und nicht ausserhalb der Karte) 

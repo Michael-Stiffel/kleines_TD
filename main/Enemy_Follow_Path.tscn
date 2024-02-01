@@ -1,16 +1,42 @@
-[gd_scene load_steps=4 format=3 uid="uid://dcudob8drr1op"]
+[gd_scene load_steps=6 format=3 uid="uid://dcudob8drr1op"]
 
 [ext_resource type="Script" path="res://PathFollow2D.gd" id="1_d6jbv"]
 [ext_resource type="Texture2D" uid="uid://bq0o2p8y6vbxa" path="res://res/PNG/Schabe.png" id="2_i4jtm"]
+[ext_resource type="Texture2D" uid="uid://drxqecv65i6pg" path="res://res/PNG/HealthBar.png" id="3_28ww7"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_frfx1"]
 
-[node name="PathFollow2D" type="PathFollow2D"]
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f1nry"]
+radius = 11.55
+height = 35.6
+
+[node name="Schabe_Path" type="PathFollow2D"]
 material = SubResource("CanvasItemMaterial_frfx1")
+progress = 336999.0
+loop = false
 script = ExtResource("1_d6jbv")
+
+[node name="Healthbar" type="TextureProgressBar" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = 16.0
+offset_bottom = -18.0
+value = 50.0
+nine_patch_stretch = true
+texture_under = ExtResource("3_28ww7")
+texture_progress = ExtResource("3_28ww7")
+tint_under = Color(0.2, 0.2, 0.2, 1)
+tint_progress = Color(0.878431, 0, 0, 1)
 
 [node name="Schabe_Node" type="Node2D" parent="."]
 
-[node name="Schabe_Sprite" type="Sprite2D" parent="Schabe_Node"]
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Schabe_Node"]
+
+[node name="Schabe_Sprite" type="Sprite2D" parent="Schabe_Node/CharacterBody2D"]
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("2_i4jtm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Schabe_Node/CharacterBody2D"]
+position = Vector2(1.405, 0)
+rotation = 1.6057
+shape = SubResource("CapsuleShape2D_f1nry")
