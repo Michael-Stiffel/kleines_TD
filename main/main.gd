@@ -64,9 +64,17 @@ func verify_and_build():
 		build_valid = false
 		
 	if build_valid: # da muss ich noch gucken wie das aussieht mit der live berrechneung 
+		map_node.astar_grid.set_point_solid(current_tile, true)
+		
+		var temp = map_node.astar_grid.get_id_path(map_node.get_start_cell(), map_node.get_end_cell())
+		if map_node.astar_grid.get_id_path(map_node.get_start_cell(), map_node.get_end_cell()).is_empty():
+			map_node.astar_grid.set_point_solid(current_tile, false)
+			build_valid = false
+			return
+		
+		map_node.calculatePath()
 		new_tower.position = Vector2(build_location.x - 64,build_location.y - 64)
 		map_node.add_child(new_tower,true)
 		new_tower.fire_ready = true
-		map_node.astar_grid.set_point_solid(current_tile, true)
 		map_dic[str(current_tile)]["Buildable"] = false
-		map_node.calculatePath()
+		

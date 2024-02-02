@@ -8,6 +8,8 @@ var Dic = {};
 var Map_Marker_Start_and_Goal;
 var cell_size =Vector2i(64, 64);
 var astar_grid = AStarGrid2D.new()
+var start_cell
+var end_cell
 
 func get_MapDic():
 	return Dic
@@ -18,6 +20,12 @@ func get_MapX():
 func get_MapY():
 	return GridSizeY
 
+func get_start_cell():
+	return start_cell
+
+func get_end_cell():
+	return end_cell
+	
 func _ready():
 	var gx = GridSizeX;
 	var gy =  GridSizeY;
@@ -50,6 +58,8 @@ func _ready():
 				set_cell(0,Vector2(x,y),1, Vector2i(0,0),0);
 	
 	Map_Marker_Start_and_Goal= setGoalAndStart(gx,gy, astar_grid);
+	start_cell = Map_Marker_Start_and_Goal[0];
+	end_cell = Map_Marker_Start_and_Goal[1];
 	calculatePath();
 
 	
@@ -91,8 +101,7 @@ func setGoalAndStart(x,y,astar_grid):
 	
 func calculatePath():
 	#"path.clear()"
-	var start_cell = Map_Marker_Start_and_Goal[0];
-	var end_cell = Map_Marker_Start_and_Goal[1];
+	
 	
 	var id_path = astar_grid.get_id_path(start_cell, end_cell) 
 	

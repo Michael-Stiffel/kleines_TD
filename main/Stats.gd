@@ -4,7 +4,7 @@ var enemy_data={
 	"Schabe":{
 		"damage" : 1,
 		"health": 20,
-		"speed" :100,
+		"speed" : 100
 	},
 }
 

@@ -1,4 +1,4 @@
-@tool
+
 extends PathFollow2D
 signal get_HP_Damage
 @onready var HP_Bar = get_node("Healthbar")
