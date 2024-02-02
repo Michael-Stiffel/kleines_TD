@@ -36,10 +36,6 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-
-
-- das spiel nicht mehr briken (also wenn amn dne letztenb Pfad killt das man das dannnicht bauen kann)
--feedback wenn amn was nicht bauen kann (rotes leuchten oder so)
 - Prozedural Wellen generieren
 - Eco aufbauen  
 - Tower soll Upgrades bekommen
@@ -75,3 +71,5 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Türme sollen gegner angreifen (ATK von Türmen,. HP von gegnern etc.)
 - Türme könbne nicht mehr gestapelt werden 
 - Türme können nicht mehr die Buildleite korumpieren
+- das spiel nicht mehr briken (also wenn amn dne letztenb Pfad killt das man das dannnicht bauen kann)
+- feedback wenn amn was nicht bauen kann (rotes leuchten oder so)

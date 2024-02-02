@@ -95,6 +95,7 @@ curve = SubResource("Curve2D_qotbj")
 script = ExtResource("9_d2r05")
 
 [node name="PathFollow2D" parent="Map_Node/Path2D" instance=ExtResource("10_3hudi")]
+visible = false
 progress = 0.0
 
 [node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
