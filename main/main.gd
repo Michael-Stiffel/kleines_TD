@@ -24,6 +24,10 @@ func _unhandled_input(event):
 		verify_and_build()
 		#cancle_build_mode()
 
+
+
+##Bauen und path checken 
+
 func initiate_build_mode(tower_type):
 	if build_mode:
 		cancle_build_mode()

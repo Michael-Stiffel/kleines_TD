@@ -39,3 +39,5 @@ func red_flash():
 	range_texture.modulate = Color.RED;
 
 	
+
+

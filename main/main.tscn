@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=23 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://bbu7la5ybu2o1" path="res://res/PNG/Ziel.png" id="6_13q05"]
 [ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
 [ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
-[ext_resource type="PackedScene" uid="uid://dcudob8drr1op" path="res://Enemy_Follow_Path.tscn" id="10_3hudi"]
 [ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
 [ext_resource type="PackedScene" uid="uid://cep3gwvwakol3" path="res://Game_over_screen.tscn" id="12_sxnb2"]
 [ext_resource type="PackedScene" uid="uid://b58sgtyvwbkoe" path="res://build_menue.tscn" id="13_orkcu"]
@@ -93,10 +92,6 @@ show_behind_parent = true
 top_level = true
 curve = SubResource("Curve2D_qotbj")
 script = ExtResource("9_d2r05")
-
-[node name="PathFollow2D" parent="Map_Node/Path2D" instance=ExtResource("10_3hudi")]
-visible = false
-progress = 0.0
 
 [node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
 visible = false

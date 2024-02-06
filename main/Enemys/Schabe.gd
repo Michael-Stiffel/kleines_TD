@@ -22,7 +22,7 @@ func set_stats(enemy):
 	HP_Bar.set_position(position- Vector2(16,20)) 
 
 func _ready():
-	
+	set_stats("Schabe")
 	loop = false;
 	set_progress(0)
 

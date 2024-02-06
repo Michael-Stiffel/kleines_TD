@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b58sgtyvwbkoe"]
+[gd_scene load_steps=5 format=3 uid="uid://b58sgtyvwbkoe"]
 
 [ext_resource type="Script" path="res://build_menue.gd" id="1_gt3vj"]
 [ext_resource type="PackedScene" uid="uid://dtaotrsrtjvtg" path="res://Button1.tscn" id="2_jcpq8"]
 [ext_resource type="PackedScene" uid="uid://cpw5qosastciv" path="res://little_StonesT1.tscn" id="3_i0ddl"]
+[ext_resource type="Texture2D" uid="uid://d1s7mbbdw5apt" path="res://res/PNG/Play_Button.png" id="4_wbmq0"]
 
 [node name="Build_Menue" type="CanvasLayer"]
 script = ExtResource("1_gt3vj")
@@ -29,12 +30,20 @@ grow_vertical = 0
 [node name="HBoxContainer" type="HBoxContainer" parent="Build_HUD/Build_Bar"]
 custom_minimum_size = Vector2(0, 128)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 theme_override_constants/separation = 16
+alignment = 1
 
 [node name="Turret" parent="Build_HUD/Build_Bar/HBoxContainer" instance=ExtResource("2_jcpq8")]
 layout_mode = 2
 
 [node name="little_Stones" parent="Build_HUD/Build_Bar/HBoxContainer" instance=ExtResource("3_i0ddl")]
 layout_mode = 2
+
+[node name="Playbutton" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer" groups=["Startbutton"]]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_wbmq0")
+
+[connection signal="pressed" from="Build_HUD/Build_Bar/HBoxContainer/Playbutton" to="." method="_on_playbutton_pressed"]
