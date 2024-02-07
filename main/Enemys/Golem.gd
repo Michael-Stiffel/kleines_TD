@@ -19,10 +19,10 @@ func set_stats(enemy):
 	HP_Bar.max_value = hp
 	HP_Bar.value = hp 
 	HP_Bar.set_as_top_level (true)
-	HP_Bar.set_position(position- Vector2(16,20)) 
+	HP_Bar.set_position(position) 
 
 func _ready():
-	
+	set_stats("Golem")
 	loop = false;
 	set_progress(0)
 

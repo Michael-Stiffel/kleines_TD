@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=24 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
 [ext_resource type="PackedScene" uid="uid://cep3gwvwakol3" path="res://Game_over_screen.tscn" id="12_sxnb2"]
 [ext_resource type="PackedScene" uid="uid://b58sgtyvwbkoe" path="res://build_menue.tscn" id="13_orkcu"]
+[ext_resource type="PackedScene" uid="uid://bfvqnj5fg03va" path="res://Enemys/Golem.tscn" id="15_d7s85"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
 texture = ExtResource("1_fs2nw")
@@ -95,5 +96,7 @@ script = ExtResource("9_d2r05")
 
 [node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
 visible = false
+
+[node name="Golem" parent="." instance=ExtResource("15_d7s85")]
 
 [connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]

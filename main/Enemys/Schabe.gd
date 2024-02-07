@@ -19,7 +19,7 @@ func set_stats(enemy):
 	HP_Bar.max_value = hp
 	HP_Bar.value = hp 
 	HP_Bar.set_as_top_level (true)
-	HP_Bar.set_position(position- Vector2(16,20)) 
+	HP_Bar.set_position(position) 
 
 func _ready():
 	set_stats("Schabe")
@@ -37,8 +37,8 @@ func move(delta):
 	HP_Bar.set_as_top_level (true)
 	HP_Bar.set_position(position- Vector2(16,20)) 
 	if (loop == false and progress_ratio == 1):
-		get_node("../../../Camera2D/HP_Count")._on_path_follow_2d_get_hp_damage(1)
-		queue_free();
+		get_node("../../../Camera2D/HP_Count")._on_path_follow_2d_get_hp_damage(attackDamage)
+		on_destroy()
 		
 func on_hit(damage):
 	hp -= damage
@@ -48,5 +48,6 @@ func on_hit(damage):
 		
 
 func on_destroy():
+	self.get_parent().set_enemys_in_wave(1)
 	self.queue_free()
 	

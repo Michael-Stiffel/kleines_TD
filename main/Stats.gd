@@ -3,8 +3,13 @@ extends Node
 var enemy_data={
 	"Schabe":{
 		"damage" : 1,
-		"health": 200,
+		"health": 20,
 		"speed" : 100
+	},
+	"Golem":{
+		"damage" : 2,
+		"health": 100,
+		"speed" : 80
 	},
 }
 

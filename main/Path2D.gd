@@ -18,8 +18,12 @@ func _ready():
 func set_READY():
 	READY = true
 
+func set_enemys_in_wave(value):
+	enemys_in_wave = enemys_in_wave -value
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	print(enemys_in_wave)
 	if READY && enemys_in_wave == 0 :
 		await start_next_wave()
 		READY = false
@@ -49,7 +53,7 @@ func start_next_wave():
 	spawn_enemie(wave_data)
 
 func retrieve_wave_data():
-	var wave_data = [["Schabe"],["Schabe"],["Schabe"],["Schabe"],["Schabe"],["Schabe"],["Schabe"]]
+	var wave_data = [["Golem"],["Golem"],["Golem"], ["Schabe"],["Schabe"],["Schabe"],["Schabe"]]
 	current_wave+= 1
 	enemys_in_wave = wave_data.size()
 	return wave_data
