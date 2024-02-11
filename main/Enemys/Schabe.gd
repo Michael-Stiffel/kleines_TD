@@ -8,9 +8,10 @@ var enemystats
 var runSpeed 
 var hp 
 var attackDamage 
-
+var who_am_i
 
 func set_stats(enemy):
+	who_am_i = enemy
 	enemystats = stats.instantiate().get_enemy_data()
 	runSpeed = enemystats[enemy]["speed"]; 
 	hp = enemystats[enemy]["health"]; 
@@ -39,15 +40,19 @@ func move(delta):
 	if (loop == false and progress_ratio == 1):
 		get_node("../../../Camera2D/HP_Count")._on_path_follow_2d_get_hp_damage(attackDamage)
 		on_destroy()
+	if hp <=0:
+		print("on_hit tot")
+		on_destroy()
 		
 func on_hit(damage):
-	hp -= damage
+	hp = hp - damage
 	HP_Bar.value = hp 
-	if hp <=0:
-		on_destroy()
+	
 		
 
 func on_destroy():
+	print("hahah tot")
+	print(who_am_i)
 	self.get_parent().set_enemys_in_wave(1)
 	self.queue_free()
 	

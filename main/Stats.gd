@@ -4,13 +4,21 @@ var enemy_data={
 	"Schabe":{
 		"damage" : 1,
 		"health": 20,
-		"speed" : 100
-	},
+		"speed" : 100,
+		"cost" : 1
+ 	},
 	"Golem":{
 		"damage" : 2,
 		"health": 100,
-		"speed" : 80
+		"speed" : 60,
+		"cost" : 3
 	},
+	"Slime":{
+		"damage" : 1,
+		"health": 80,
+		"speed" : 80,
+		"cost" : 2
+	}
 }
 
 

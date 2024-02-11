@@ -11,7 +11,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	text ="HP:" + str(HP)
-	if HP == 0:
+	if HP <= 0:
 		var gameover = GameOverScreen.instantiate()
 		add_child(gameover)
 		gameover.set_title(false)

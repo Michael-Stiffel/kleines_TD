@@ -1,0 +1,25 @@
+[gd_scene load_steps=5 format=3 uid="uid://b16ksc03q5kp4"]
+
+[ext_resource type="Script" path="res://Enemys/Slime.gd" id="1_scqbh"]
+[ext_resource type="PackedScene" uid="uid://dhst2lo7fyhh" path="res://healthbar.tscn" id="2_go8lg"]
+[ext_resource type="Texture2D" uid="uid://cgeeqbcu62lai" path="res://mobs/Slime.png" id="3_j5bp5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mnqvd"]
+radius = 16.48
+
+[node name="Slime" type="PathFollow2D"]
+script = ExtResource("1_scqbh")
+
+[node name="Healthbar" parent="." instance=ExtResource("2_go8lg")]
+
+[node name="Slime" type="Node2D" parent="."]
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="Slime"]
+
+[node name="Sprite2D" type="Sprite2D" parent="Slime/CharacterBody2D"]
+texture_filter = 1
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_j5bp5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slime/CharacterBody2D"]
+shape = SubResource("CircleShape2D_mnqvd")

@@ -41,7 +41,7 @@ func move(delta):
 		on_destroy()
 		
 func on_hit(damage):
-	hp -= damage
+	hp = hp - damage
 	HP_Bar.value = hp 
 	if hp <=0:
 		on_destroy()

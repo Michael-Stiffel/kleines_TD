@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Enemys/Golem.gd" id="1_ur4fj"]
 [ext_resource type="PackedScene" uid="uid://dhst2lo7fyhh" path="res://healthbar.tscn" id="2_f0oh1"]
-[ext_resource type="Texture2D" uid="uid://cr3xl3rhiw2wb" path="res://res/PNG/Golem.png" id="3_ruboa"]
+[ext_resource type="Texture2D" uid="uid://clt4uqkl71dvv" path="res://mobs/Golem.png" id="3_1061f"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5nwc1"]
 
@@ -10,6 +10,7 @@
 script = ExtResource("1_ur4fj")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_f0oh1")]
+texture_filter = 1
 offset_top = -32.0
 offset_bottom = -26.0
 
@@ -19,7 +20,7 @@ offset_bottom = -26.0
 scale = Vector2(0.9, 0.9)
 
 [node name="Sprite2D" type="Sprite2D" parent="Golem/CharacterBody2D"]
-texture = ExtResource("3_ruboa")
+texture = ExtResource("3_1061f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Golem/CharacterBody2D"]
 scale = Vector2(0.94, 1.355)

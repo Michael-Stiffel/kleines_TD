@@ -6,14 +6,24 @@ var build_mode = false
 var build_valid = false 
 var build_location
 var build_type
+var Path_node
+var not_in_wave = true 
 
 func _ready():
 	map_node = get_node("Map_Node/TileMap")
 	preview_node = get_node("Build_Menue")
+	Path_node = get_node("Map_Node/Path2D")
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", initiate_build_mode.bind(i.get_name()))
 
 func _process(delta):
+	if Path_node.get_enemys_in_wave() != 0:
+		if build_mode:
+			cancle_build_mode()
+		not_in_wave = false 
+		build_valid = false
+	else:
+		not_in_wave = true 
 	if build_mode:
 		update_tower_preview()
 
@@ -31,10 +41,11 @@ func _unhandled_input(event):
 func initiate_build_mode(tower_type):
 	if build_mode:
 		cancle_build_mode()
-	build_type = tower_type + "T1" #T1 packen wir hinten dran weil wir prinzipiell immer erstmal einen Tier 1 Tower bauen 
-	build_mode = true;
-	var tile = get_global_mouse_position() 
-	get_node("Build_Menue").set_tower_preview(build_type, tile)
+	if not_in_wave:
+		build_type = tower_type + "T1" #T1 packen wir hinten dran weil wir prinzipiell immer erstmal einen Tier 1 Tower bauen 
+		build_mode = true;
+		var tile = get_global_mouse_position() 
+		get_node("Build_Menue").set_tower_preview(build_type, tile)
 
 func update_tower_preview():
 	var mouse_posi = get_global_mouse_position() 
@@ -74,15 +85,16 @@ func cancle_build_mode():
 
 func verify_and_build():
 	
-	var map_dic = map_node.get_MapDic()
-	var mapX = map_node.get_MapX()
-	var mapY = map_node.get_MapY()
-	var new_tower = load("res://"+ build_type +".tscn").instantiate()
-	var mouse_posi = get_global_mouse_position() 
-	var current_tile = map_node.local_to_map(mouse_posi)
-	var tile_position = map_node.map_to_local(current_tile)
+	
 		
-	if build_valid: # da muss ich noch gucken wie das aussieht mit der live berrechneung 
+	if build_valid:
+		var map_dic = map_node.get_MapDic()
+		var mapX = map_node.get_MapX()
+		var mapY = map_node.get_MapY()
+		var new_tower = load("res://"+ build_type +".tscn").instantiate()
+		var mouse_posi = get_global_mouse_position() 
+		var current_tile = map_node.local_to_map(mouse_posi)
+		var tile_position = map_node.map_to_local(current_tile) # da muss ich noch gucken wie das aussieht mit der live berrechneung 
 		map_node.astar_grid.set_point_solid(current_tile, true)
 		map_node.calculatePath()
 		new_tower.position = Vector2(build_location.x - 64,build_location.y - 64)

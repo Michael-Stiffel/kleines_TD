@@ -9,7 +9,7 @@ var Trange
 var Tdamage
 var Tattackspeed
 
-func _process(delta):
+func _process(_delta):
 	if enemy_array.size() != 0:
 		select_enemy()
 		if fire_ready:
@@ -19,12 +19,12 @@ func _process(delta):
 func select_enemy():
 	var enemy_progress_array = []
 	for i in enemy_array:
-		enemy_progress_array.append(i.progress)
+		enemy_progress_array.append(int(i.progress))
 	var max_progress = enemy_progress_array.max()
 	var enemy_index = enemy_progress_array.find(max_progress)
 	enemy = enemy_array[enemy_index]
-	print("Choosen enemy: ")
-	print(enemy)
+	#print("Choosen enemy: ")
+	#print(enemy)
 
 
 func fire():
