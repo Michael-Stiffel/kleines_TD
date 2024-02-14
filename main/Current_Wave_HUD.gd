@@ -18,3 +18,4 @@ func _process(delta):
 		
 
 func set_new_wave(new_wave):
+	wave = new_wave
