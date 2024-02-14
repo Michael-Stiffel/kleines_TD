@@ -2,19 +2,19 @@ extends Node
 
 var enemy_data={
 	"Schabe":{
-		"damage" : 1,
+		"damage" : 5,
 		"health": 20,
 		"speed" : 100,
 		"cost" : 1
  	},
 	"Golem":{
-		"damage" : 2,
+		"damage" : 5,
 		"health": 100,
 		"speed" : 60,
 		"cost" : 3
 	},
 	"Slime":{
-		"damage" : 1,
+		"damage" : 5,
 		"health": 80,
 		"speed" : 80,
 		"cost" : 2

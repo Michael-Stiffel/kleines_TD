@@ -11,6 +11,14 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	text ="HP:" + str(HP)
+	if HP >= 50:
+		set("theme_override_colors/font_color",Color("00ff00"))
+	elif HP > 25 && HP < 50:
+		set("theme_override_colors/font_color",Color("e6ff00"))
+	elif HP < 25:
+		set("theme_override_colors/font_color",Color("ff0000"))
+	
+	
 	if HP <= 0:
 		var gameover = GameOverScreen.instantiate()
 		add_child(gameover)

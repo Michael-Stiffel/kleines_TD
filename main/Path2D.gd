@@ -5,7 +5,7 @@ var spawnTime = 1;
 #var follower = preload("res://Enemy_Follow_Path.tscn")
 #var follower = preload("res://Enemys/Schabe.tscn")
 var PathPoints;
-var current_wave = 1
+var current_wave = 0
 var enemys_in_wave = 0 
 var READY = false
 var Startbutton
@@ -25,14 +25,18 @@ func set_enemys_in_wave(value):
 	enemys_in_wave = enemys_in_wave - value
 	
 func get_enemys_in_wave():
+	get_node("../../Camera2D/Enemies_left").set_enemies_left(enemys_in_wave)
 	return enemys_in_wave
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	print(enemys_in_wave)
-	if READY && enemys_in_wave == 0 :
-		await start_next_wave()
+	if enemys_in_wave != 0:
 		READY = false
+	if READY && enemys_in_wave == 0 :
+		READY = false
+		start_next_wave()
+	
 
 
 func _on_tile_map_path_calculated(Message):
@@ -52,8 +56,9 @@ func start_next_wave():
 	spawn_enemie(wave_data)
 
 func retrieve_wave_data():
-	var wave_data = gimme_the_waves()
 	current_wave+= 1
+	var wave_data = gimme_the_waves()
+	get_node("../../Camera2D/Current_Wave").set_new_wave(current_wave)
 	enemys_in_wave = wave_data.size()
 	return wave_data
 
@@ -67,6 +72,7 @@ func gimme_the_waves():
 	var choosen_enemy = enemystats.keys()[randi_range(0, 2)]
 	var cost_of_enemy = enemystats[choosen_enemy]["cost"]
 	var number_of_enemys = int((current_wave*10)/ enemystats[choosen_enemy]["cost"])
+	get_node("../../Camera2D/Enemies_left").set_initial_enemies_left(number_of_enemys)
 	var da_waves = []
 	for  i in number_of_enemys:
 		da_waves.append(choosen_enemy)

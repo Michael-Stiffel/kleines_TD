@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=25 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://dssulafonirs7" path="res://res/PNG/SHIT_WAY.png" id="2_bstxu"]
 [ext_resource type="Texture2D" uid="uid://dtq5thoji13v1" path="res://res/PNG/FUCKING_TOWER.png" id="3_q8qi3"]
 [ext_resource type="Texture2D" uid="uid://c5vixn5soa757" path="res://res/PNG/Select_Rahmen.png" id="4_ddoo7"]
+[ext_resource type="Script" path="res://Current_Wave_HUD.gd" id="4_ywn35"]
+[ext_resource type="Script" path="res://Enemies_left_HUD.gd" id="5_23mlh"]
 [ext_resource type="Script" path="res://TileMap.gd" id="5_xpysc"]
 [ext_resource type="Texture2D" uid="uid://bbu7la5ybu2o1" path="res://res/PNG/Ziel.png" id="6_13q05"]
 [ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
@@ -71,6 +73,29 @@ position = Vector2(-64, -64)
 anchor_mode = 0
 
 [node name="HP_Count" parent="Camera2D" instance=ExtResource("11_c112h")]
+
+[node name="Current_Wave" type="Label" parent="Camera2D"]
+offset_left = 2048.0
+offset_top = 128.0
+offset_right = 2240.0
+offset_bottom = 192.0
+size_flags_horizontal = 4
+text = "WAVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("4_ywn35")
+
+[node name="Enemies_left" type="Label" parent="Camera2D"]
+offset_left = 2048.0
+offset_top = 192.0
+offset_right = 2240.0
+offset_bottom = 256.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "JAJA Gegner 
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("5_23mlh")
 
 [node name="Map_Node" type="Node2D" parent="."]
 
