@@ -1,15 +1,17 @@
-[gd_scene load_steps=25 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=27 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
 [ext_resource type="Script" path="res://main.gd" id="1_lyh7m"]
 [ext_resource type="Texture2D" uid="uid://dssulafonirs7" path="res://res/PNG/SHIT_WAY.png" id="2_bstxu"]
+[ext_resource type="Texture2D" uid="uid://dgd7614gcnams" path="res://res/PNG/Build_sprite.png" id="2_jkhnt"]
 [ext_resource type="Texture2D" uid="uid://dtq5thoji13v1" path="res://res/PNG/FUCKING_TOWER.png" id="3_q8qi3"]
 [ext_resource type="Texture2D" uid="uid://c5vixn5soa757" path="res://res/PNG/Select_Rahmen.png" id="4_ddoo7"]
 [ext_resource type="Script" path="res://Current_Wave_HUD.gd" id="4_ywn35"]
 [ext_resource type="Script" path="res://Enemies_left_HUD.gd" id="5_23mlh"]
 [ext_resource type="Script" path="res://TileMap.gd" id="5_xpysc"]
 [ext_resource type="Texture2D" uid="uid://bbu7la5ybu2o1" path="res://res/PNG/Ziel.png" id="6_13q05"]
+[ext_resource type="Script" path="res://Material_HUD.gd" id="6_qbo11"]
 [ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
 [ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
 [ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
@@ -66,36 +68,55 @@ sources/6 = SubResource("TileSetAtlasSource_w6dd7")
 [node name="Main" type="Node2D"]
 script = ExtResource("1_lyh7m")
 
-[node name="Build_Menue" parent="." instance=ExtResource("13_orkcu")]
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(2080, 640)
+texture = ExtResource("2_jkhnt")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(-64, -64)
 anchor_mode = 0
 
 [node name="HP_Count" parent="Camera2D" instance=ExtResource("11_c112h")]
+custom_minimum_size = Vector2(0, 128)
+offset_left = 2016.31
+offset_right = 2208.31
+offset_bottom = 192.0
+text = "HP"
+vertical_alignment = 0
 
 [node name="Current_Wave" type="Label" parent="Camera2D"]
-offset_left = 2048.0
+custom_minimum_size = Vector2(0, 128)
+offset_left = 2016.31
 offset_top = 128.0
-offset_right = 2240.0
-offset_bottom = 192.0
+offset_right = 2208.31
+offset_bottom = 256.0
 size_flags_horizontal = 4
 text = "WAVE"
 horizontal_alignment = 1
-vertical_alignment = 1
 script = ExtResource("4_ywn35")
 
 [node name="Enemies_left" type="Label" parent="Camera2D"]
-offset_left = 2048.0
+custom_minimum_size = Vector2(0, 128)
+offset_left = 2016.31
 offset_top = 192.0
-offset_right = 2240.0
-offset_bottom = 256.0
+offset_right = 2208.31
+offset_bottom = 320.0
 theme_override_colors/font_color = Color(0, 1, 0, 1)
 text = "JAJA Gegner 
 "
 horizontal_alignment = 1
-vertical_alignment = 1
 script = ExtResource("5_23mlh")
+
+[node name="Material" type="Label" parent="Camera2D"]
+custom_minimum_size = Vector2(0, 128)
+offset_left = 2016.31
+offset_top = 256.0
+offset_right = 2208.31
+offset_bottom = 384.0
+text = "Gold"
+horizontal_alignment = 1
+script = ExtResource("6_qbo11")
 
 [node name="Map_Node" type="Node2D" parent="."]
 
@@ -110,6 +131,8 @@ layer_2/name = "tower"
 layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("5_xpysc")
+
+[node name="TowerLine" type="Line2D" parent="Map_Node/TileMap"]
 
 [node name="Path2D" type="Path2D" parent="Map_Node"]
 show_behind_parent = true
@@ -126,5 +149,7 @@ antialiased = true
 
 [node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
 visible = false
+
+[node name="Build_Menue" parent="." instance=ExtResource("13_orkcu")]
 
 [connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]

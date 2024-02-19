@@ -1,9 +1,12 @@
-[gd_scene load_steps=5 format=3 uid="uid://b58sgtyvwbkoe"]
+[gd_scene load_steps=8 format=3 uid="uid://b58sgtyvwbkoe"]
 
 [ext_resource type="Script" path="res://build_menue.gd" id="1_gt3vj"]
 [ext_resource type="PackedScene" uid="uid://dtaotrsrtjvtg" path="res://Button1.tscn" id="2_jcpq8"]
 [ext_resource type="PackedScene" uid="uid://cpw5qosastciv" path="res://little_StonesT1.tscn" id="3_i0ddl"]
-[ext_resource type="Texture2D" uid="uid://d1s7mbbdw5apt" path="res://res/PNG/Play_Button.png" id="4_wbmq0"]
+[ext_resource type="Texture2D" uid="uid://t8vx6autv2m8" path="res://res/PNG/Startbutton.png" id="4_mon0r"]
+[ext_resource type="Texture2D" uid="uid://c2iqh10e6ltas" path="res://res/PNG/Startbutton_Pressed.png" id="5_li06a"]
+[ext_resource type="Texture2D" uid="uid://dtha417wxj547" path="res://res/PNG/Startbutton_Hover.png" id="6_v42iy"]
+[ext_resource type="Texture2D" uid="uid://bg546abs36d1t" path="res://res/PNG/shit_background.png" id="7_aq6vj"]
 
 [node name="Build_Menue" type="CanvasLayer"]
 script = ExtResource("1_gt3vj")
@@ -13,6 +16,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 1920.0
+offset_top = 1024.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 1
@@ -23,9 +28,25 @@ anchors_preset = 12
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -128.0
+offset_top = -336.0
+offset_bottom = -16.0
 grow_horizontal = 2
 grow_vertical = 0
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Build_HUD/Build_Bar"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+alignment = 1
+
+[node name="Playbutton" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer2" groups=["Startbutton"]]
+custom_minimum_size = Vector2(256.895, 62.95)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("4_mon0r")
+texture_pressed = ExtResource("5_li06a")
+texture_hover = ExtResource("6_v42iy")
+stretch_mode = 0
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Build_HUD/Build_Bar"]
 custom_minimum_size = Vector2(0, 128)
@@ -39,11 +60,38 @@ layout_mode = 2
 [node name="little_Stones" parent="Build_HUD/Build_Bar/HBoxContainer" instance=ExtResource("3_i0ddl")]
 layout_mode = 2
 
-[node name="Playbutton" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer" groups=["Startbutton"]]
+[node name="Demolish" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
-texture_normal = ExtResource("4_wbmq0")
+texture_normal = ExtResource("7_aq6vj")
 
-[connection signal="pressed" from="Build_HUD/Build_Bar/HBoxContainer/Playbutton" to="." method="_on_playbutton_pressed"]
+[node name="HBoxContainer3" type="HBoxContainer" parent="Build_HUD/Build_Bar"]
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 2
+theme_override_constants/separation = 16
+alignment = 1
+
+[node name="Demolish" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_aq6vj")
+
+[node name="Demolish2" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_aq6vj")
+
+[node name="Demolish3" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer3"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("7_aq6vj")
+
+[connection signal="pressed" from="Build_HUD/Build_Bar/HBoxContainer2/Playbutton" to="." method="_on_playbutton_pressed"]

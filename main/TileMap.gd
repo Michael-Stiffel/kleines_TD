@@ -77,7 +77,7 @@ func _process(delta):
 		#"print(Dic[str(tile)])"
 		#print(tile)
 		#print(astar_grid.is_point_solid(Vector2i(tile)));
-		print(Dic[str(tile)])
+		#print(Dic[str(tile)])
 		
 
 func setGoalAndStart(x,y,astar_grid):

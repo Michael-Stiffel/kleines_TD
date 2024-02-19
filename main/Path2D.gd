@@ -30,7 +30,7 @@ func get_enemys_in_wave():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	print(enemys_in_wave)
+	#print(enemys_in_wave)
 	if enemys_in_wave != 0:
 		READY = false
 	if READY && enemys_in_wave == 0 :

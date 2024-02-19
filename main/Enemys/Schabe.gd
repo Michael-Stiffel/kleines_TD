@@ -4,6 +4,7 @@ signal get_HP_Damage
 var HP_Bar 
 #das wird irgendwann das ur scripot wie bei Turrets aber jett gerade egal
 var stats = preload("res://stats.tscn") 
+var blood = preload("res://blood_animation.tscn")
 var enemystats
 var runSpeed 
 var hp 
@@ -41,18 +42,21 @@ func move(delta):
 		get_node("../../../Camera2D/HP_Count")._on_path_follow_2d_get_hp_damage(attackDamage)
 		on_destroy()
 	if hp <=0:
-		print("on_hit tot")
+		#print("on_hit tot")
 		on_destroy()
 		
 func on_hit(damage):
+	var newHit= blood.instantiate()
+	newHit.position = position
+	add_child(newHit)
 	hp = hp - damage
 	HP_Bar.value = hp 
 	
 		
 
 func on_destroy():
-	print("hahah tot")
-	print(who_am_i)
+	#print("hahah tot")
+	#print(who_am_i)
 	self.get_parent().set_enemys_in_wave(1)
 	self.queue_free()
 	

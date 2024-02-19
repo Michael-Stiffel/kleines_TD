@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dkmm2vult8di7"]
+
+[ext_resource type="Script" path="res://arrow.gd" id="1_qao1y"]
+[ext_resource type="Texture2D" uid="uid://1ry2syk0v2on" path="res://res/PNG/Stone_projektile.png" id="2_bihmk"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_rxt8p"]
+
+[node name="Arrow" type="Node2D"]
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+script = ExtResource("1_qao1y")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_rxt8p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_bihmk")
+
+[connection signal="body_shape_entered" from="Area2D" to="." method="_on_area_2d_body_shape_entered"]
+[connection signal="child_entered_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]

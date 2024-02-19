@@ -1,5 +1,7 @@
 extends Node2D
 
+var map
+var tile_position
 var enemy_array = []
 var enemy 
 var stats = preload("res://stats.tscn") 
@@ -8,7 +10,10 @@ var fire_ready = false
 var Trange 
 var Tdamage
 var Tattackspeed
+var Arrow = preload("res://arrow.tscn")
 
+
+	
 func _process(_delta):
 	if enemy_array.size() != 0:
 		select_enemy()
@@ -28,8 +33,16 @@ func select_enemy():
 
 
 func fire():
+	
 	fire_ready = false
-	enemy.on_hit(Tdamage)
+	var b = Arrow.instantiate()
+	add_child(b)
+	b.my_damage(Tdamage)
+	b.position.x = b.position.x+64
+	b.position.y = b.position.y+64
+	var degree = b.get_angle_to(enemy.position)
+	b.transform = b.transform.rotated_local(degree)  
+	#enemy.on_hit(Tdamage)
 	await get_tree().create_timer(Tattackspeed).timeout
 	fire_ready = true
 	
@@ -47,3 +60,4 @@ func intialfuck(name):
 	self.get_node("Area2D/CollisionShape2D").get_shape().radius =  Trange
 	Tdamage = towerData[name]["damage"]
 	Tattackspeed = towerData[name]["attackspeed"]
+	

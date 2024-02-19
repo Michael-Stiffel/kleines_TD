@@ -100,5 +100,7 @@ func verify_and_build():
 		new_tower.position = Vector2(build_location.x - 64,build_location.y - 64)
 		map_node.add_child(new_tower,true)
 		new_tower.fire_ready = true
+		new_tower.tile_position = current_tile
+		new_tower.map = map_node
 		map_dic[str(current_tile)]["Buildable"] = false
 		
