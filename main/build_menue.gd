@@ -33,5 +33,16 @@ func  set_tower_preview(build_type, mouse_position):
 	range_texture.modulate = Color.RED;
 
 	
+func update_tower_preview(new_position, color):
+	get_node("TowerPreview").position = new_position
+	if get_node("TowerPreview/Drag_Tower").modulate != Color(color):
+		get_node("TowerPreview").modulate = Color(color)
+		get_node("TowerPreview/Sprite2D").modulate = Color(color)
+
+func red_flash():
+
+	drag_tower.modulate = Color.RED;
+	range_texture.modulate = Color.RED;
+
 
 
