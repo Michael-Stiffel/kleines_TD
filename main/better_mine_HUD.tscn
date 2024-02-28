@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://bsnouusxywepy"]
+
+[ext_resource type="Texture2D" uid="uid://bg546abs36d1t" path="res://res/PNG/shit_background.png" id="1_ik41k"]
+[ext_resource type="Texture2D" uid="uid://brm50h4n13iem" path="res://res/PNG/shit_background_clicked.png" id="2_3ygv0"]
+[ext_resource type="Texture2D" uid="uid://4tpwfaf7rmt3" path="res://res/PNG/Mine_UP.png" id="2_7skg1"]
+[ext_resource type="Texture2D" uid="uid://niub155wa73n" path="res://res/PNG/shit_background_hover.png" id="3_dxcb7"]
+
+[node name="BetterMine" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_ik41k")
+texture_pressed = ExtResource("2_3ygv0")
+texture_hover = ExtResource("3_dxcb7")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 67.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_7skg1")

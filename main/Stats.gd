@@ -26,8 +26,8 @@ var tower_data ={
 	"TurretT1":{
 		"damage": 10,
 		"range" : 200,
-		"attackspeed" : 1 # 1 mal pro sekunde
-		
+		"attackspeed" : 1, # 1 mal pro sekunde
+		"cost" : 5
 	},
 	"CavemanTower":{
 		"damage": 30,

@@ -3,6 +3,7 @@ extends CanvasLayer
 @onready var title = $PanelContainer/MarginContainer/Rows/Titel
 
 func set_title(win : bool):
+	
 	if win:
 		title.text = "U WIN"
 		title.modulate = Color.GREEN

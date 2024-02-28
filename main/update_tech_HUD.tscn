@@ -1,0 +1,23 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0vjytsgkdpg5"]
+
+[ext_resource type="Texture2D" uid="uid://bg546abs36d1t" path="res://res/PNG/shit_background.png" id="1_tyacc"]
+[ext_resource type="Texture2D" uid="uid://brm50h4n13iem" path="res://res/PNG/shit_background_clicked.png" id="2_qfj3n"]
+[ext_resource type="Texture2D" uid="uid://1ylxb18pgqhw" path="res://res/PNG/Tech_up.png" id="2_w4k1a"]
+[ext_resource type="Texture2D" uid="uid://niub155wa73n" path="res://res/PNG/shit_background_hover.png" id="3_qv742"]
+
+[node name="UpdateTech" type="TextureButton"]
+custom_minimum_size = Vector2(64, 64)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("1_tyacc")
+texture_pressed = ExtResource("2_qfj3n")
+texture_hover = ExtResource("3_qv742")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 67.0
+offset_bottom = 67.0
+scale = Vector2(0.9, 0.9)
+texture = ExtResource("2_w4k1a")

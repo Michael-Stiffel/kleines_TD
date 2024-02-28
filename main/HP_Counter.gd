@@ -24,7 +24,7 @@ func _process(delta):
 		add_child(gameover)
 		gameover.set_title(false)
 		get_tree().paused = true
-	
+		
 	
 
 

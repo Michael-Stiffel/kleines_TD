@@ -26,6 +26,8 @@ func set_enemys_in_wave(value):
 	
 func get_enemys_in_wave():
 	get_node("../../Camera2D/Enemies_left").set_enemies_left(enemys_in_wave)
+	if enemys_in_wave == 0:
+		get_node("../../Camera2D/Enemies_left").set_wave_state("Ende")
 	return enemys_in_wave
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -36,7 +38,7 @@ func _process(delta):
 	if READY && enemys_in_wave == 0 :
 		READY = false
 		start_next_wave()
-	
+		get_node("../../Camera2D/Enemies_left").set_wave_state("Start")
 
 
 func _on_tile_map_path_calculated(Message):

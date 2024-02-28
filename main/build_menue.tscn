@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://b58sgtyvwbkoe"]
+[gd_scene load_steps=11 format=3 uid="uid://b58sgtyvwbkoe"]
 
 [ext_resource type="Script" path="res://build_menue.gd" id="1_gt3vj"]
 [ext_resource type="PackedScene" uid="uid://dtaotrsrtjvtg" path="res://Button1.tscn" id="2_jcpq8"]
@@ -6,7 +6,10 @@
 [ext_resource type="Texture2D" uid="uid://t8vx6autv2m8" path="res://res/PNG/Startbutton.png" id="4_mon0r"]
 [ext_resource type="Texture2D" uid="uid://c2iqh10e6ltas" path="res://res/PNG/Startbutton_Pressed.png" id="5_li06a"]
 [ext_resource type="Texture2D" uid="uid://dtha417wxj547" path="res://res/PNG/Startbutton_Hover.png" id="6_v42iy"]
-[ext_resource type="Texture2D" uid="uid://bg546abs36d1t" path="res://res/PNG/shit_background.png" id="7_aq6vj"]
+[ext_resource type="PackedScene" uid="uid://cry43lih6oysa" path="res://demolish.tscn" id="7_m1tmc"]
+[ext_resource type="PackedScene" uid="uid://ctvhjagwnklt8" path="res://increase_number_of_miners_HUD.tscn" id="8_b72vg"]
+[ext_resource type="PackedScene" uid="uid://bsnouusxywepy" path="res://better_mine_HUD.tscn" id="9_x5e2j"]
+[ext_resource type="PackedScene" uid="uid://d0vjytsgkdpg5" path="res://update_tech_HUD.tscn" id="10_f4ehb"]
 
 [node name="Build_Menue" type="CanvasLayer"]
 script = ExtResource("1_gt3vj")
@@ -60,12 +63,8 @@ layout_mode = 2
 [node name="little_Stones" parent="Build_HUD/Build_Bar/HBoxContainer" instance=ExtResource("3_i0ddl")]
 layout_mode = 2
 
-[node name="Demolish" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer"]
-custom_minimum_size = Vector2(64, 64)
+[node name="Demolish" parent="Build_HUD/Build_Bar/HBoxContainer" instance=ExtResource("7_m1tmc")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("7_aq6vj")
 
 [node name="HBoxContainer3" type="HBoxContainer" parent="Build_HUD/Build_Bar"]
 custom_minimum_size = Vector2(0, 128)
@@ -73,25 +72,13 @@ layout_mode = 2
 theme_override_constants/separation = 16
 alignment = 1
 
-[node name="Demolish" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer3"]
-custom_minimum_size = Vector2(64, 64)
+[node name="increaseNumberOfMiners" parent="Build_HUD/Build_Bar/HBoxContainer3" groups=["Updates"] instance=ExtResource("8_b72vg")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("7_aq6vj")
 
-[node name="Demolish2" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer3"]
-custom_minimum_size = Vector2(64, 64)
+[node name="BetterMine" parent="Build_HUD/Build_Bar/HBoxContainer3" groups=["Updates"] instance=ExtResource("9_x5e2j")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("7_aq6vj")
 
-[node name="Demolish3" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer3"]
-custom_minimum_size = Vector2(64, 64)
+[node name="UpdateTech" parent="Build_HUD/Build_Bar/HBoxContainer3" groups=["Updates"] instance=ExtResource("10_f4ehb")]
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
-texture_normal = ExtResource("7_aq6vj")
 
 [connection signal="pressed" from="Build_HUD/Build_Bar/HBoxContainer2/Playbutton" to="." method="_on_playbutton_pressed"]
