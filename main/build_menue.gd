@@ -10,7 +10,7 @@ func  set_tower_preview(build_type, mouse_position):
 	drag_tower = load("res://"+ build_type +".tscn").instantiate()
 	drag_tower.set_name("Drag_Tower")
 	drag_tower.modulate = Color("ad54ff3c");
-	
+
 	range_texture =  Sprite2D.new()	
 	range_texture.position = Vector2(64,64)
 	var scaling = Trange/ 300.0

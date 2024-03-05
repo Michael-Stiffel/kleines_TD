@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=3 uid="uid://3w46rerce682"]
+
+[ext_resource type="Script" path="res://Material_HUD.gd" id="1_1jyjg"]
+
+[node name="Material" type="Label"]
+custom_minimum_size = Vector2(0, 128)
+offset_left = 2016.31
+offset_top = 256.0
+offset_right = 2208.31
+offset_bottom = 384.0
+text = "Gold"
+horizontal_alignment = 1
+script = ExtResource("1_1jyjg")

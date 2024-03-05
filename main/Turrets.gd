@@ -11,7 +11,7 @@ var Trange
 var Tdamage
 var Tattackspeed
 var Arrow = preload("res://arrow.tscn")
-
+var button = 0 
 
 	
 func _process(_delta):
@@ -43,7 +43,7 @@ func fire():
 	var degree = b.get_angle_to(enemy.position)
 	b.transform = b.transform.rotated_local(degree)  
 	#enemy.on_hit(Tdamage)
-	await get_tree().create_timer(Tattackspeed).timeout
+	await get_tree().create_timer(1/Tattackspeed).timeout
 	fire_ready = true
 	
 	
@@ -60,4 +60,9 @@ func intialfuck(name):
 	self.get_node("Area2D/CollisionShape2D").get_shape().radius =  Trange
 	Tdamage = towerData[name]["damage"]
 	Tattackspeed = towerData[name]["attackspeed"]
-	
+
+func upgrade_ATK(value):
+		Tdamage = Tdamage + value
+		
+func upgrade_ASP(value):
+		Tattackspeed = Tattackspeed + value

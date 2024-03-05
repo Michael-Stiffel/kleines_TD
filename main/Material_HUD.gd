@@ -35,10 +35,10 @@ func _process(delta):
 		
 
 func to_expensive(value):
-	if value > mats:
-		return true
-	else:
-		return false
+	return (value > mats)
+	
+	
+	
 
 func buy_shit(value):
 	mats = mats - value

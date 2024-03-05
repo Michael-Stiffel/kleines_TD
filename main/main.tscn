@@ -12,12 +12,12 @@
 [ext_resource type="Script" path="res://Enemies_left_HUD.gd" id="5_23mlh"]
 [ext_resource type="Script" path="res://TileMap.gd" id="5_xpysc"]
 [ext_resource type="Texture2D" uid="uid://bbu7la5ybu2o1" path="res://res/PNG/Ziel.png" id="6_13q05"]
-[ext_resource type="Script" path="res://Material_HUD.gd" id="6_qbo11"]
 [ext_resource type="Texture2D" uid="uid://b2g7eebs6k7r8" path="res://res/PNG/Stone.png" id="7_wh6uy"]
 [ext_resource type="Script" path="res://Path2D.gd" id="9_d2r05"]
 [ext_resource type="PackedScene" uid="uid://dpvqxxsv5nxp7" path="res://hp_count.tscn" id="11_c112h"]
 [ext_resource type="PackedScene" uid="uid://cep3gwvwakol3" path="res://Game_over_screen.tscn" id="12_sxnb2"]
 [ext_resource type="PackedScene" uid="uid://b58sgtyvwbkoe" path="res://build_menue.tscn" id="13_orkcu"]
+[ext_resource type="PackedScene" uid="uid://3w46rerce682" path="res://material.tscn" id="16_r2dl8"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
 texture = ExtResource("1_fs2nw")
@@ -148,15 +148,7 @@ text = "JAJA Gegner
 horizontal_alignment = 1
 script = ExtResource("5_23mlh")
 
-[node name="Material" type="Label" parent="Camera2D"]
-custom_minimum_size = Vector2(0, 128)
-offset_left = 2016.31
-offset_top = 256.0
-offset_right = 2208.31
-offset_bottom = 384.0
-text = "Gold"
-horizontal_alignment = 1
-script = ExtResource("6_qbo11")
+[node name="Material" parent="Camera2D" instance=ExtResource("16_r2dl8")]
 
 [node name="Build_Menue" parent="Camera2D" instance=ExtResource("13_orkcu")]
 layer = 0

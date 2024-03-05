@@ -1,17 +1,22 @@
-[gd_scene load_steps=4 format=3 uid="uid://bn8vpbryol4fp"]
+[gd_scene load_steps=5 format=3 uid="uid://bn8vpbryol4fp"]
 
 [ext_resource type="Script" path="res://TurretT1.gd" id="1_bk6jg"]
-[ext_resource type="Texture2D" uid="uid://dtq5thoji13v1" path="res://res/PNG/FUCKING_TOWER.png" id="4_47df5"]
+[ext_resource type="Texture2D" uid="uid://m1mdf01wog8w" path="res://res/PNG/Wooden_Base.png" id="2_kk41o"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4kel8"]
 resource_local_to_scene = true
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_1khpb"]
+radius = 43.55
+
 [node name="TurretT1" type="Node2D"]
 script = ExtResource("1_bk6jg")
 
+[node name="PopupMenu" type="PopupMenu" parent="."]
+
 [node name="Turret" type="Sprite2D" parent="."]
 position = Vector2(64, 64)
-texture = ExtResource("4_47df5")
+texture = ExtResource("2_kk41o")
 
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(64, 64)
@@ -20,7 +25,16 @@ position = Vector2(64, 64)
 shape = SubResource("CircleShape2D_4kel8")
 debug_color = Color(0, 0.6, 0.701961, 0.419608)
 
+[node name="Click_body" type="Area2D" parent="."]
+position = Vector2(64, 64)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Click_body"]
+shape = SubResource("CircleShape2D_1khpb")
+
+[connection signal="id_pressed" from="PopupMenu" to="." method="_on_popup_menu_id_pressed"]
+[connection signal="index_pressed" from="PopupMenu" to="." method="_on_popup_menu_index_pressed"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
 [connection signal="child_entered_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_entered_tree"]
 [connection signal="child_exiting_tree" from="Area2D/CollisionShape2D" to="." method="_on_collision_shape_2d_child_exiting_tree"]
+[connection signal="input_event" from="Click_body" to="." method="_on_area_2d_input_event"]
