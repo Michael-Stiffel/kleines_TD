@@ -5,7 +5,7 @@ extends AnimatedSprite2D
 func _ready():
 	play("blood")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	pass
 
 

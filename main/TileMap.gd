@@ -64,7 +64,7 @@ func _ready():
 
 	
 
-func _process(delta):
+func _process(_delta):
 	var tile = local_to_map(get_global_mouse_position())
 
 	
@@ -80,7 +80,7 @@ func _process(delta):
 		#print(Dic[str(tile)])
 		
 
-func setGoalAndStart(x,y,astar_grid):
+func setGoalAndStart(x,y,_astar_grid):
 	var StartPoint = Vector2(randi_range(1,x-2),randi_range(1,y-2))
 	var EndPoint = Vector2(randi_range(1,x-2),randi_range(1,y-2))
 	#print("ICH BIN DER START", StartPoint)

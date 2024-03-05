@@ -22,7 +22,7 @@ func _ready():
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	wave_state = get_node("../../Camera2D/Enemies_left").get_wave_state()
 	if wave_state == "Ende" && once_per_wave == 0:
 		mats = int(mats  + (10 * number_of_Miners*quality_of_Ore))

@@ -1,7 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://y3ft38wc0bqb"]
+[gd_scene load_steps=5 format=3 uid="uid://y3ft38wc0bqb"]
 
 [ext_resource type="Script" path="res://Path2D.gd" id="1_4atsv"]
-[ext_resource type="Script" path="res://PathFollow2D.gd" id="2_p8rge"]
 [ext_resource type="Texture2D" uid="uid://bq0o2p8y6vbxa" path="res://res/PNG/Schabe.png" id="3_b6kxy"]
 
 [sub_resource type="Curve2D" id="Curve2D_qotbj"]
@@ -17,7 +16,6 @@ script = ExtResource("1_4atsv")
 
 [node name="PathFollow2D" type="PathFollow2D" parent="."]
 material = SubResource("CanvasItemMaterial_frfx1")
-script = ExtResource("2_p8rge")
 
 [node name="Schabe_Node" type="Node2D" parent="PathFollow2D"]
 

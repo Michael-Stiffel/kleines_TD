@@ -10,7 +10,7 @@ func _ready():
 	buttons[2].connect("pressed",update_tech_level.bind() )
  
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	text = "Tech:" + str(tech_level)  
 
 func update_tech_level():

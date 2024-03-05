@@ -36,11 +36,8 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-- Visuals updaten(HUD soll anzeigen wieviele Gegner in der aktuellen welle sind, welchje welle wir haben, wie viel Münzen haben wir. Dann sollen die Tower Projektilie verschießen und treffereffekte wären schön)
 - Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)
 -das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
-- Eco aufbauen  
-- Tower soll Upgrades bekommen
 - Winstate erstellen (nun vielleicht einfach Higfhscore und unendlich Wellen)
 - Hauptmenü erstellen 
 - Optionsmenü erstellen
@@ -76,3 +73,6 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - das spiel nicht mehr briken (also wenn amn dne letztenb Pfad killt das man das dannnicht bauen kann)
 - feedback wenn amn was nicht bauen kann (rotes leuchten oder so)
 - Prozedural Wellen generieren(caveman)
+- Visuals updaten(HUD soll anzeigen wieviele Gegner in der aktuellen welle sind, welchje welle wir haben, wie viel Münzen haben wir. Dann sollen die Tower Projektilie verschießen und treffereffekte wären schön)
+- Eco aufbauen  
+- Tower soll Upgrades bekommen

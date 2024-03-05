@@ -13,12 +13,12 @@ var towerData = stats.instantiate().get_tower_data()
 
 func _ready():
 	map_node = get_node("Map_Node/TileMap")
-	preview_node = get_node("Build_Menue")
+	preview_node = get_node("Camera2D/Build_Menue")
 	Path_node = get_node("Map_Node/Path2D")
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", initiate_build_mode.bind(i.get_name()))
 
-func _process(delta):
+func _process(_delta):
 	if Path_node.get_enemys_in_wave() != 0:
 		if build_mode:
 			cancle_build_mode()
@@ -95,8 +95,7 @@ func verify_and_build():
 		
 	if build_valid:
 		var map_dic = map_node.get_MapDic()
-		var mapX = map_node.get_MapX()
-		var mapY = map_node.get_MapY()
+		
 		var new_tower = load("res://"+ build_type +".tscn").instantiate()
 		var mouse_posi = get_global_mouse_position() 
 		var current_tile = map_node.local_to_map(mouse_posi)

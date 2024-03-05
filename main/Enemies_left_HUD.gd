@@ -11,7 +11,7 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	text ="ENEMIES:" + str(enemies_left)
 	if enemies_left >= initial_enemies_left/2:
 		set("theme_override_colors/font_color",Color("ff0000"))

@@ -31,7 +31,7 @@ func get_enemys_in_wave():
 	return enemys_in_wave
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	#print(enemys_in_wave)
 	if enemys_in_wave != 0:
 		READY = false
@@ -73,7 +73,7 @@ func spawn_enemie(wave_data):
 func gimme_the_waves():
 	var choosen_enemy = enemystats.keys()[randi_range(0, 2)]
 	var cost_of_enemy = enemystats[choosen_enemy]["cost"]
-	var number_of_enemys = int((current_wave*10)/ enemystats[choosen_enemy]["cost"])
+	var number_of_enemys = int((current_wave*10)/cost_of_enemy)
 	get_node("../../Camera2D/Enemies_left").set_initial_enemies_left(number_of_enemys)
 	var da_waves = []
 	for  i in number_of_enemys:

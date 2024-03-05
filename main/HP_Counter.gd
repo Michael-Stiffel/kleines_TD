@@ -9,7 +9,7 @@ func _ready():
 	text ="HP:" + str(HP)
 	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	text ="HP:" + str(HP)
 	if HP >= 50:
 		set("theme_override_colors/font_color",Color("00ff00"))
