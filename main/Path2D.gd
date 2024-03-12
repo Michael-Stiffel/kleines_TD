@@ -11,6 +11,7 @@ var READY = false
 var Startbutton
 var stats = preload("res://stats.tscn")
 var enemystats 
+var enemy_tier_class = "T1"
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
@@ -21,6 +22,9 @@ func _ready():
 func set_READY():
 	READY = true
 
+func get_enemy_tier_class():
+	return enemy_tier_class
+	
 func set_enemys_in_wave(value):
 	enemys_in_wave = enemys_in_wave - value
 	
@@ -71,8 +75,13 @@ func spawn_enemie(wave_data):
 		await get_tree().create_timer(1).timeout
 
 func gimme_the_waves():
-	var choosen_enemy = enemystats.keys()[randi_range(0, 2)]
-	var cost_of_enemy = enemystats[choosen_enemy]["cost"]
+	match current_wave:
+		5:
+			enemy_tier_class = "T2"
+		
+	var keys = enemystats[enemy_tier_class].keys()
+	var choosen_enemy = enemystats[enemy_tier_class].keys()[randi_range(0, (keys.size()-1))]
+	var cost_of_enemy = enemystats[enemy_tier_class][choosen_enemy]["cost"]
 	var number_of_enemys = int((current_wave*10)/cost_of_enemy)
 	get_node("../../Camera2D/Enemies_left").set_initial_enemies_left(number_of_enemys)
 	var da_waves = []

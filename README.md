@@ -36,8 +36,7 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-- Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)
--das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
+- das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
 - Winstate erstellen (nun vielleicht einfach Higfhscore und unendlich Wellen)
 - Hauptmenü erstellen 
 - Optionsmenü erstellen
@@ -49,8 +48,8 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 
-- Mehr Stuff auf der Karte(Felsen, Kontrollpunkte, Booster, vielleicht fucking Portale)
-- mehr Upgrademöglichkeiten für die Türme und Völker für den Spieler 
+- Mehr Stuff auf der Karte(Felsen, Kartoffeln, Kontrollpunkte, Booster, vielleicht fucking Portale)
+- mehr Upgrademöglichkeiten für die Türme und Völker für den Spieler (Turret Overhaul mit Larry)
 - Anfangen einen Multiplayer zu cavemanen 
 - Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
 - Kontent Kontent Kontent
@@ -76,3 +75,4 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Visuals updaten(HUD soll anzeigen wieviele Gegner in der aktuellen welle sind, welchje welle wir haben, wie viel Münzen haben wir. Dann sollen die Tower Projektilie verschießen und treffereffekte wären schön)
 - Eco aufbauen  
 - Tower soll Upgrades bekommen
+- Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)

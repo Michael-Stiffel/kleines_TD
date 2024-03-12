@@ -14,11 +14,12 @@ var who_am_i
 	
 
 func set_stats(enemy):
+	var enemy_tier_class = get_node("../").get_enemy_tier_class()
 	who_am_i = enemy
 	enemystats = stats.instantiate().get_enemy_data()
-	runSpeed = enemystats[enemy]["speed"]; 
-	hp = enemystats[enemy]["health"]; 
-	attackDamage = enemystats[enemy]["damage"]; 
+	runSpeed = enemystats[enemy_tier_class][enemy]["speed"]; 
+	hp = enemystats[enemy_tier_class][enemy]["health"]; 
+	attackDamage = enemystats[enemy_tier_class][enemy]["damage"]; 
 	HP_Bar = get_node("Healthbar")
 	HP_Bar.max_value = hp
 	HP_Bar.value = hp 
