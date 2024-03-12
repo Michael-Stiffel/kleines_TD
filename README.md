@@ -36,8 +36,8 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-- das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
-- Winstate erstellen (nun vielleicht einfach Higfhscore und unendlich Wellen)
+
+- Winstate erstellen (nun vielleicht einfach Highscore und unendlich Wellen)
 - Hauptmenü erstellen 
 - Optionsmenü erstellen
 - ein bisschen mukke und SFX 
@@ -76,3 +76,4 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Eco aufbauen  
 - Tower soll Upgrades bekommen
 - Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)
+- das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
