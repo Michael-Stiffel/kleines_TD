@@ -12,12 +12,16 @@ var Tdamage
 var Tattackspeed
 var Arrow = preload("res://arrow.tscn")
 var button = 0 
-var PopupIds = ["ATK_TEXT", "ASP_TEXT", "UP_ATK", "UP_ASP"]
+var PopupIds = ["ATK_TEXT", "ASP_TEXT", "UP_ATK", "UP_ASP", "DEL"]
 var last_mouse_position
 var mats
+var mats_return
+var mats_return_for_ASP = 0
+var mats_return_for_ATK = 0
 @onready var _pm = $PopupMenu
 var cost_for_ATK = 1
 var cost_for_ASP = 1
+var cost_for_tower
 	
 func _process(_delta):
 	if enemy_array.size() != 0:
@@ -63,12 +67,14 @@ func intialfuck(identifier):
 	self.get_node("Area2D/CollisionShape2D").get_shape().radius =  Trange
 	Tdamage = towerData[identifier]["damage"]
 	Tattackspeed = towerData[identifier]["attackspeed"]
+	cost_for_tower = towerData[identifier]["cost"]
 	cost_for_ATK = Tdamage
 	cost_for_ASP = int(Tattackspeed *20)
 	_pm.add_item("ATK: " + str(Tdamage) )
 	_pm.add_item("ASP: " + str(Tattackspeed))
 	_pm.add_item("Upgrade ATK" + "(" + str(cost_for_ATK) + ")")
 	_pm.add_item("Upgrade ASP" + "(" + str(cost_for_ASP) + ")" )
+	_pm.add_item("Delete")
 #	_pm.connect("id_pressed", _on_popup_menu_id_pressed.bind())
 	_pm.connect("index_pressed", _on_popup_menu_index_pressed.bind())
 	
@@ -77,21 +83,34 @@ func intialfuck(identifier):
 
 
 func _on_popup_menu_index_pressed(index):
+	var map_node = get_node("../../../Map_Node/TileMap")
 	mats = get_node("../../../Camera2D/Material")
 	match PopupIds[index]:
 		"UP_ATK":
-			mats.buy_shit(cost_for_ATK)
-			upgrade_ATK(1)
-			cost_for_ATK = Tdamage 
-			_pm.set_item_text(PopupIds.find("ATK_TEXT"), "ATK: " + str(Tdamage)) 
-			_pm.set_item_text(index, "Upgrade ATK" + "(" + str(cost_for_ATK) + ")") 
+			var zu_teuer = mats.to_expensive(cost_for_ATK)
+			if !zu_teuer:
+				mats.buy_shit(cost_for_ATK)
+				mats_return_for_ATK = mats_return_for_ATK +cost_for_ATK
+				upgrade_ATK(1)
+				cost_for_ATK = Tdamage 
+				_pm.set_item_text(PopupIds.find("ATK_TEXT"), "ATK: " + str(Tdamage)) 
+				_pm.set_item_text(index, "Upgrade ATK" + "(" + str(cost_for_ATK) + ")") 
 		"UP_ASP":
-			mats.buy_shit(cost_for_ASP)
-			upgrade_ASP(0.25)
-			cost_for_ASP = int(Tattackspeed *20)
-			_pm.set_item_text(PopupIds.find("ASP_TEXT"), "ASP: " + str(Tattackspeed)) 
-			_pm.set_item_text(index, "Upgrade ASP" + "(" + str(cost_for_ASP) + ")" ) 
-
+			var zu_teuer = mats.to_expensive(cost_for_ASP)
+			if !zu_teuer:
+				mats.buy_shit(cost_for_ASP)
+				mats_return_for_ASP = mats_return_for_ASP +cost_for_ASP
+				upgrade_ASP(0.25)
+				cost_for_ASP = int(Tattackspeed *20)
+				_pm.set_item_text(PopupIds.find("ASP_TEXT"), "ASP: " + str(Tattackspeed)) 
+				_pm.set_item_text(index, "Upgrade ASP" + "(" + str(cost_for_ASP) + ")" ) 
+		"DEL":
+			var map_dic = map_node.get_MapDic()
+			var current_tile = map_node.local_to_map(last_mouse_position)
+			map_dic[str(current_tile)]["Buildable"] = true
+			mats_return = mats_return_for_ASP + mats_return_for_ATK + cost_for_tower
+			mats.sell_shit(mats_return) 
+			self.queue_free()
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if (event.is_action_released("ui_cancel")):
@@ -103,5 +122,6 @@ func _on_area_2d_input_event(_viewport, event, _shape_idx):
 func upgrade_ATK(value):
 		Tdamage = Tdamage + value
 		
+		
 func upgrade_ASP(value):
-		Tattackspeed = Tattackspeed + value
+	Tattackspeed = Tattackspeed + value

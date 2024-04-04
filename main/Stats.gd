@@ -40,6 +40,12 @@ var tower_data ={
 		"range" : 100,
 		"attackspeed" : 2 # 1 mal pro 2 skeunden 
 	},
+	"little_StonesT1":{
+		"damage": 0,
+		"range" : 0,
+		"attackspeed" :1,# 1 mal pro 2 skeunden 
+		"cost" : 5  
+	},
 }
 
 func get_tower_data():

@@ -10,14 +10,15 @@ var Path_node
 var not_in_wave = true 
 var stats = preload("res://stats.tscn")
 var towerData = stats.instantiate().get_tower_data()
-
+var Tooltipp_turrets
 func _ready():
 	map_node = get_node("Map_Node/TileMap")
 	preview_node = get_node("Camera2D/Build_Menue")
 	Path_node = get_node("Map_Node/Path2D")
+	Tooltipp_turrets = get_node("Camera2D/Build_Menue/Build_HUD/Build_Bar/HBoxContainer/Turret")
 	for i in get_tree().get_nodes_in_group("build_buttons"):
 		i.connect("pressed", initiate_build_mode.bind(i.get_name()))
-
+		Tooltipp_turrets.change_build_type(i.get_name()+ "T1" )	
 func _process(_delta):
 	if Path_node.get_enemys_in_wave() != 0:
 		if build_mode:
@@ -101,6 +102,7 @@ func verify_and_build():
 		var current_tile = map_node.local_to_map(mouse_posi)
 		var tile_position = map_node.map_to_local(current_tile) # da muss ich noch gucken wie das aussieht mit der live berrechneung 
 		get_node("Camera2D/Material").buy_shit(towerData[build_type]["cost"])
+		Tooltipp_turrets.change_build_type(build_type)
 		map_node.astar_grid.set_point_solid(current_tile, true)
 		map_node.calculatePath()
 		new_tower.position = Vector2(build_location.x - 64,build_location.y - 64)

@@ -13,7 +13,7 @@ func _process(_delta):
 	if wave >= 10:
 		var gameover = GameOverScreen.instantiate()
 		add_child(gameover)
-		gameover.set_title(true)
+		gameover.set_title(true) # hier wird der Winstate gesetzt im Moment ist das Ziel Welle 10 zu schaffen
 		get_tree().paused = true
 		
 
