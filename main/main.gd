@@ -11,6 +11,9 @@ var not_in_wave = true
 var stats = preload("res://stats.tscn")
 var towerData = stats.instantiate().get_tower_data()
 var Tooltipp_turrets
+@onready var pause_menu = $Camera2D/Pause_Menu
+var paused = false
+
 func _ready():
 	map_node = get_node("Map_Node/TileMap")
 	preview_node = get_node("Camera2D/Build_Menue")
@@ -20,6 +23,9 @@ func _ready():
 		i.connect("pressed", initiate_build_mode.bind(i.get_name()))
 		Tooltipp_turrets.change_build_type(i.get_name()+ "T1" )	
 func _process(_delta):
+	if Input.is_action_just_pressed("pause"):
+		pauseMenu()
+	
 	if Path_node.get_enemys_in_wave() != 0:
 		if build_mode:
 			cancle_build_mode()
@@ -30,6 +36,15 @@ func _process(_delta):
 	if build_mode:
 		update_tower_preview()
 
+func pauseMenu():
+	if paused: 
+		pause_menu.hide()
+		Engine.time_scale = 1 
+	else:  
+		pause_menu.show()
+		Engine.time_scale = 0 
+	paused = !paused
+	
 func _unhandled_input(event):
 	if event.is_action_released("ui_cancel") and build_mode == true:
 		cancle_build_mode()

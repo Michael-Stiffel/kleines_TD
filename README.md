@@ -36,10 +36,9 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-- Hauptmenü erstellen 
-- Optionsmenü erstellen
+
+
 - ein bisschen mukke und SFX 
-- polishing der Grafiken 
 - Dann einmal gucken ob das überhaupt spaß macht XD, falls das so is dann Phase 2
 
 #### Phase 2: 
@@ -76,3 +75,6 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)
 - das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
 - Winstate erstellen (im Moment soll man eine bestimmte Welle(10) erreichen, vielleicht nachher als alternative einen Highscore erreichen und unendliche Wellen)
+- Hauptmenü erstellen 
+- Optionsmenü erstellen
+- Pausen menü erstellen
