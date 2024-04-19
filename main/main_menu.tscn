@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" path="res://main_menu.gd" id="1_1dm3s"]
 
-[node name="Main_menu" type="Control"]
+[node name="Node2D" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Main_menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,35 +15,38 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1dm3s")
 
-[node name="MarginContainer" type="MarginContainer" parent="."]
-layout_mode = 0
-offset_right = 2304.0
-offset_bottom = 1280.0
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/Main_menu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Main_menu/MarginContainer"]
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Play" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Play" type="Button" parent="CanvasLayer/Main_menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Play"
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Options" type="Button" parent="CanvasLayer/Main_menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Options"
 
-[node name="Multiplayer" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Multiplayer" type="Button" parent="CanvasLayer/Main_menu/MarginContainer/VBoxContainer"]
 visible = false
 layout_mode = 2
 text = "Multiplayer"
 
-[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Quit" type="Button" parent="CanvasLayer/Main_menu/MarginContainer/VBoxContainer"]
 layout_mode = 2
 text = "Quit"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Play" to="." method="_on_play_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Options" to="." method="_on_options_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Multiplayer" to="." method="_on_multiplayer_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main_menu/MarginContainer/VBoxContainer/Play" to="CanvasLayer/Main_menu" method="_on_play_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main_menu/MarginContainer/VBoxContainer/Options" to="CanvasLayer/Main_menu" method="_on_options_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main_menu/MarginContainer/VBoxContainer/Multiplayer" to="CanvasLayer/Main_menu" method="_on_multiplayer_pressed"]
+[connection signal="pressed" from="CanvasLayer/Main_menu/MarginContainer/VBoxContainer/Quit" to="CanvasLayer/Main_menu" method="_on_quit_pressed"]
