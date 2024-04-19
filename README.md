@@ -40,38 +40,51 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 
-- Mehr Stuff auf der Karte(Felsen, Kartoffeln, Kontrollpunkte, Booster, vielleicht fucking Portale)
-- mehr Upgrademöglichkeiten für die Türme und Völker für den Spieler (Turret Overhaul mit Larry)
-- Anfangen einen Multiplayer zu cavemanen 
-- Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
-- Kontent Kontent Kontent
+- [ ] Mehr Stuff auf der Karte(Felsen, Kartoffeln, Kontrollpunkte, Booster, vielleicht fucking Portale)
+- [ ] mehr Upgrademöglichkeiten für die Türme und Völker für den Spieler (Turret Overhaul mit Larry)
+- [ ] Anfangen einen Multiplayer zu cavemanen 
+- [ ] Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
+- [ ] Kontent Kontent Kontent
+- [ ] Add Multiplayer
+  - [ ] Add Multiplayer Menu Options
+  - [ ] Schauen wie Multiplayer hier aussehen soll
+  - [ ] Dedicated Server support? Ich vermute mal nicht
+  - [ ] Wie kann ich meinem gegenüber Joinen? Direkt IP und Port oder Relay Server schenanigans.
+    - [ ] Wird wahrscheinlich Relay Server weil ISP der Hurensohn kein richtige IP mehr raus gibt
+
+##### Bugs & Improvments:
+
+- [ ] Für alle Bildschirmauflösungen anpassen
+  - [ ] Um alle Elemente Container Elemente machen an die sich die Unterelemente anordnen können
+  - [ ] Bildschirmäuflösung im Optionsmenu einführen
+  - [ ] Fullscreen und WindowedMode unterschied schauen und eventuell was dafür einführen?
 
 ### Getan: 
 
-- Map wird in sehr primitiver Form generiert(Grastiles, Start, Ziel und Steinborder)
-- Pfad von Start nach Ziel wird berechent
-- Sehr primitiv folgen dummys dem Pfad
-- Spawner für Viecher erstellen 
-- GUI für eigene HP der Basis und Scahden pro Vieh einsetzten
-- Losingstate erstellen
-- Türme setzten können, GUI fürs bauen
-- Pfad soll auf Türme reagieren und festellenn falls ein Turm den letztzen möglichen Weg versperrt
-- Türme dürfen nicht auf den STart und das Ziel gesetzt werden, allgemeion brauchen wir einen "buildable" state 
+- [x] Map wird in sehr primitiver Form generiert(Grastiles, Start, Ziel und Steinborder)
+- [x] Pfad von Start nach Ziel wird berechent
+- [x] Sehr primitiv folgen dummys dem Pfad
+- [x] Spawner für Viecher erstellen 
+- [x] GUI für eigene HP der Basis und Scahden pro Vieh einsetzten
+- [x] Losingstate erstellen
+- [x] Türme setzten können, GUI fürs bauen
+- [x] Pfad soll auf Türme reagieren und festellenn falls ein Turm den letztzen möglichen Weg versperrt
+- [x] Türme dürfen nicht auf den STart und das Ziel gesetzt werden, allgemeion brauchen wir einen "buildable" state 
   der dann gecheckt wird ob da ein Tower hin kann(nicht auif den Rand der MAp bauen, nicht auf start und Ziel und nicht ausserhalb der Karte) 
-- Türme sollen gegner angreifen (ATK von Türmen,. HP von gegnern etc.)
-- Türme könbne nicht mehr gestapelt werden 
-- Türme können nicht mehr die Buildleite korumpieren
-- das spiel nicht mehr briken (also wenn amn dne letztenb Pfad killt das man das dannnicht bauen kann)
-- feedback wenn amn was nicht bauen kann (rotes leuchten oder so)
-- Prozedural Wellen generieren(caveman)
-- Visuals updaten(HUD soll anzeigen wieviele Gegner in der aktuellen welle sind, welchje welle wir haben, wie viel Münzen haben wir. Dann sollen die Tower Projektilie verschießen und treffereffekte wären schön)
-- Eco aufbauen  
-- Tower soll Upgrades bekommen
-- Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)
-- das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
-- Winstate erstellen (im Moment soll man eine bestimmte Welle(10) erreichen, vielleicht nachher als alternative einen Highscore erreichen und unendliche Wellen)
-- Hauptmenü erstellen 
-- Optionsmenü erstellen
-- Pausen menü erstellen
-- ein bisschen mukke und SFX 
-- Dann einmal gucken ob das überhaupt spaß macht XD, falls das so is dann Phase 2
+- [x] Türme sollen gegner angreifen (ATK von Türmen,. HP von gegnern etc.)
+- [x] Türme könbne nicht mehr gestapelt werden 
+- [x] Türme können nicht mehr die Buildleite korumpieren
+- [x] das spiel nicht mehr briken (also wenn amn dne letztenb Pfad killt das man das dannnicht bauen kann)
+- [x] feedback wenn amn was nicht bauen kann (rotes leuchten oder so)
+- [x] Prozedural Wellen generieren(caveman)
+- [x] Visuals updaten(HUD soll anzeigen wieviele Gegner in der aktuellen welle sind, welchje welle wir haben, wie viel Münzen haben wir. Dann sollen die Tower Projektilie verschießen und treffereffekte wären schön)
+- [x] Eco aufbauen  
+- [x] Tower soll Upgrades bekommen
+- [x] Code aufräuemn um einfacher gegner hinzuzufügen (also scriptwise soll nicht soviel Code dopplung vorkommen)
+- [x] das wellensystem soll eine schwierigkeits klasse kriegen damit man ab nem gewissen Punkt keien Low-Tier mobs mehr spawnt (also keine 1000 schaben sondern dann ...HYDREN oder so)
+- [x] Winstate erstellen (im Moment soll man eine bestimmte Welle(10) erreichen, vielleicht nachher als alternative einen Highscore erreichen und unendliche Wellen)
+- [x] Hauptmenü erstellen 
+- [x] Optionsmenü erstellen
+- [x] Pausen menü erstellen
+- [x] ein bisschen mukke und SFX 
+- [x] Dann einmal gucken ob das überhaupt spaß macht XD, falls das so is dann Phase 2
