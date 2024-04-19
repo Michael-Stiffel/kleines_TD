@@ -36,11 +36,6 @@ Statt das man spezische Angriffe schickt geht es darum die Wellen zu besiegen un
 
 ### Todo: 
 
-
-
-- ein bisschen mukke und SFX 
-- Dann einmal gucken ob das überhaupt spaß macht XD, falls das so is dann Phase 2
-
 #### Phase 2: 
 
 Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
@@ -78,3 +73,5 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Hauptmenü erstellen 
 - Optionsmenü erstellen
 - Pausen menü erstellen
+- ein bisschen mukke und SFX 
+- Dann einmal gucken ob das überhaupt spaß macht XD, falls das so is dann Phase 2
