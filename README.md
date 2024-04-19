@@ -46,6 +46,13 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
 - Kontent Kontent Kontent
 
+##### Bugs & Improvments:
+
+- [ ] Für alle Bildschirmauflösungen anpassen
+  - [ ] Um alle Elemente Container Elemente machen an die sich die Unterelemente anordnen können
+  - [ ] Bildschirmäuflösung im Optionsmenu einführen
+  - [ ] Fullscreen und WindowedMode unterschied schauen und eventuell was dafür einführen?
+
 ### Getan: 
 
 - Map wird in sehr primitiver Form generiert(Grastiles, Start, Ziel und Steinborder)
