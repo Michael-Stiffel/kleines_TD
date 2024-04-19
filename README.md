@@ -45,6 +45,12 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - Anfangen einen Multiplayer zu cavemanen 
 - Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
 - Kontent Kontent Kontent
+- [ ] Add Multiplayer
+  - [ ] Add Multiplayer Menu Options
+  - [ ] Schauen wie Multiplayer hier aussehen soll
+  - [ ] Dedicated Server support? Ich vermute mal nicht
+  - [ ] Wie kann ich meinem gegenüber Joinen? Direkt IP und Port oder Relay Server schenanigans.
+    - [ ] Wird wahrscheinlich Relay Server weil ISP der Hurensohn kein richtige IP mehr raus gibt
 
 ##### Bugs & Improvments:
 
