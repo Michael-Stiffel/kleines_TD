@@ -12,9 +12,11 @@ var stats = preload("res://stats.tscn")
 var towerData = stats.instantiate().get_tower_data()
 var Tooltipp_turrets
 @onready var pause_menu = $Camera2D/Pause_Menu
+@onready var Background_Music = $Audio/Background_Music
 var paused = false
 
 func _ready():
+	Background_Music.play()
 	map_node = get_node("Map_Node/TileMap")
 	preview_node = get_node("Camera2D/Build_Menue")
 	Path_node = get_node("Map_Node/Path2D")

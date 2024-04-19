@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=32 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -19,6 +19,9 @@
 [ext_resource type="PackedScene" uid="uid://dof2wgjkshw2s" path="res://Pause_menu.tscn" id="12_ynpeo"]
 [ext_resource type="PackedScene" uid="uid://b58sgtyvwbkoe" path="res://build_menue.tscn" id="13_orkcu"]
 [ext_resource type="PackedScene" uid="uid://3w46rerce682" path="res://material.tscn" id="16_r2dl8"]
+[ext_resource type="AudioStream" uid="uid://cne3nsdckihgx" path="res://audio/Bow_catapult_shoot.mp3" id="20_7c1x6"]
+[ext_resource type="AudioStream" uid="uid://8ped2r075c7t" path="res://audio/rock_impact.mp3" id="21_rlfls"]
+[ext_resource type="AudioStream" uid="uid://oxwrfanq55oc" path="res://audio/Background_music.mp3" id="22_xbl0q"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y77m0"]
 texture = ExtResource("1_fs2nw")
@@ -161,5 +164,21 @@ layer = 0
 [node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
 layer = 2
 visible = false
+
+[node name="Audio" type="Node" parent="."]
+
+[node name="Tower_shoot" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("20_7c1x6")
+volume_db = -15.559
+pitch_scale = 1.96
+
+[node name="Impact_sound" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("21_rlfls")
+volume_db = -3.93
+pitch_scale = 1.72
+
+[node name="Background_Music" type="AudioStreamPlayer2D" parent="Audio"]
+stream = ExtResource("22_xbl0q")
+volume_db = -9.2
 
 [connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]

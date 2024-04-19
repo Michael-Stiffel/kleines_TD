@@ -22,6 +22,7 @@ var mats_return_for_ATK = 0
 var cost_for_ATK = 1
 var cost_for_ASP = 1
 var cost_for_tower
+@onready var shoot_sound = get_node("../../../Audio/Tower_shoot") 
 	
 func _process(_delta):
 	if enemy_array.size() != 0:
@@ -42,6 +43,7 @@ func select_enemy():
 func fire():
 	
 	fire_ready = false
+	shoot_sound.play()
 	var b = Arrow.instantiate()
 	add_child(b)
 	b.my_damage(Tdamage)

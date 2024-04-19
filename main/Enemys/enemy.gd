@@ -9,9 +9,9 @@ var runSpeed
 var hp 
 var attackDamage 
 var who_am_i
+@onready var impact_sound = get_node("../../../Audio/Impact_sound") 
 
 
-	
 
 func set_stats(enemy):
 	var enemy_tier_class = get_node("../").get_enemy_tier_class()
@@ -45,6 +45,7 @@ func move(delta):
 		
 func on_hit(damage):
 	var newHit= blood.instantiate()
+	impact_sound.play()
 	newHit.position = position
 	add_child(newHit)
 	hp = hp - damage
