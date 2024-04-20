@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://dof2wgjkshw2s"]
+[gd_scene load_steps=5 format=3 uid="uid://dof2wgjkshw2s"]
 
 [ext_resource type="Script" path="res://Pause_menu.gd" id="1_dapnb"]
 [ext_resource type="Shader" path="res://Pause_menu.gdshader" id="2_u4uhj"]
+[ext_resource type="Script" path="res://VolumeSlider.gd" id="3_3x1r6"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ybcjs"]
 shader = ExtResource("2_u4uhj")
@@ -18,12 +19,14 @@ script = ExtResource("1_dapnb")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_ybcjs")
+layout_mode = 0
 offset_left = -64.0
 offset_top = -64.0
 offset_right = 2368.0
 offset_bottom = 1344.0
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
+layout_mode = 0
 offset_right = 2304.0
 offset_bottom = 1280.0
 
@@ -37,12 +40,79 @@ size_flags_vertical = 4
 layout_mode = 2
 text = "Resume"
 
-[node name="Quit" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+[node name="Option" type="Button" parent="Control/MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Quit
+text = "Options"
+
+[node name="QuitToMainMenue" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit to Main Menue"
+
+[node name="QuitToDesktop" type="Button" parent="Control/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Quit to Desktop
 "
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+custom_minimum_size = Vector2(256, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="Master Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Master Volume"
+horizontal_alignment = 1
+
+[node name="Master Volume Slider" type="HSlider" parent="Control/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("3_3x1r6")
+bus_name = "Master"
+
+[node name="Music Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Music Volume Slider" type="HSlider" parent="Control/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("3_3x1r6")
+bus_name = "Music"
+
+[node name="SFX Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFX Volume Slider" type="HSlider" parent="Control/MarginContainer/VBoxContainer2"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("3_3x1r6")
+bus_name = "SFX"
+
+[node name="Back" type="Button" parent="Control/MarginContainer/VBoxContainer2"]
+visible = false
+layout_mode = 2
+text = "Back to Menue"
 
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Resume" to="Control" method="_on_resume_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="." method="_on_quit_pressed"]
-[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Quit" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/Option" to="Control" method="_on_option_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitToMainMenue" to="Control" method="_on_quit_to_main_menue_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitToDesktop" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer/QuitToDesktop" to="Control" method="_on_quit_pressed"]
+[connection signal="pressed" from="Control/MarginContainer/VBoxContainer2/Back" to="Control" method="_on_back_pressed"]
