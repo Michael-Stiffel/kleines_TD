@@ -171,14 +171,17 @@ visible = false
 stream = ExtResource("20_7c1x6")
 volume_db = -15.559
 pitch_scale = 1.96
+bus = &"SFX"
 
 [node name="Impact_sound" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("21_rlfls")
 volume_db = -3.93
 pitch_scale = 1.72
+bus = &"SFX"
 
 [node name="Background_Music" type="AudioStreamPlayer2D" parent="Audio"]
 stream = ExtResource("22_xbl0q")
-volume_db = -9.2
+volume_db = 24.0
+bus = &"Music"
 
 [connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]

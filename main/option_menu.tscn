@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://cc4v6ew1sq0k1"]
+[gd_scene load_steps=3 format=3 uid="uid://cc4v6ew1sq0k1"]
 
 [ext_resource type="Script" path="res://option_menu.gd" id="1_we0q8"]
+[ext_resource type="Script" path="res://VolumeSlider.gd" id="2_dlwwi"]
 
 [node name="Options_menu" type="Control"]
 layout_mode = 3
@@ -22,13 +23,53 @@ layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Volume" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Master Volume" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-text = "Volume"
+text = "Master Volume"
+horizontal_alignment = 1
 
-[node name="Back" type="Button" parent="MarginContainer/VBoxContainer"]
+[node name="Master Volume Slider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
-text = "Back"
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_dlwwi")
+bus_name = "Master"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Volume" to="." method="_on_volume_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/Back" to="." method="_on_back_pressed"]
+[node name="Music Volume" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Music Volume"
+horizontal_alignment = 1
+
+[node name="Music Volume Slider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_dlwwi")
+bus_name = "Music"
+
+[node name="SFX Volume" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "SFX Volume"
+horizontal_alignment = 1
+
+[node name="SFX Volume Slider" type="HSlider" parent="MarginContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 1.0
+step = 0.05
+script = ExtResource("2_dlwwi")
+bus_name = "SFX"
+
+[node name="Back_to_Menue" type="Button" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Back to Menue"
+
+[node name="Back_to_Game" type="Button" parent="MarginContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Back to Game"
+
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back_to_Menue" to="." method="_on_back_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/Back_to_Game" to="." method="_on_back_to_game_pressed"]
