@@ -88,3 +88,4 @@ Ehrlich wenn das hier erreicht wird dann bin ich schon echt erstaunt.
 - [x] Pausen menü erstellen
 - [x] ein bisschen mukke und SFX 
 - [x] Dann einmal gucken ob das überhaupt spaß macht XD, falls das so is dann Phase 2
+- [x] Soundmenüs und Speichern der Soundeinstellungen 
