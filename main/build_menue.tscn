@@ -23,12 +23,13 @@ script = ExtResource("1_gt3vj")
 [node name="Build_HUD" type="Control" parent="."]
 z_index = -2
 layout_mode = 3
-anchors_preset = 15
+anchors_preset = 11
+anchor_left = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 1920.0
-offset_top = 1024.0
-grow_horizontal = 2
+offset_left = -154.675
+offset_right = -154.675
+grow_horizontal = 0
 grow_vertical = 2
 mouse_filter = 1
 

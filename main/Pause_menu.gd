@@ -1,6 +1,6 @@
 extends Control
 
-@onready var main_scene = $"../../../"
+@onready var main_scene = $"../../Main"
 
 @onready var master_slider = %"Master Volume Slider"
 @onready var music_slider = %"Music Volume Slider"

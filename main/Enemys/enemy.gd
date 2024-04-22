@@ -38,7 +38,7 @@ func move(delta):
 	HP_Bar.set_as_top_level (true)
 	HP_Bar.set_position(position- Vector2(16,20)) 
 	if (loop == false and progress_ratio == 1):
-		get_node("../../../Camera2D/HP_Count")._on_path_follow_2d_get_hp_damage(attackDamage)
+		get_node("../../../../CanvasLayer/Control/HP_Count")._on_path_follow_2d_get_hp_damage(attackDamage)
 		on_destroy()
 	if hp <=0:
 		on_destroy()

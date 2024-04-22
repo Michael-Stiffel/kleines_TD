@@ -14,8 +14,8 @@ var cost_quality_of_Ore
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Tooltipp_more_miners = get_node("../Build_Menue/Build_HUD/Build_Bar/HBoxContainer3/increaseNumberOfMiners")
-	Tooltipp_better_ore = get_node("../Build_Menue/Build_HUD/Build_Bar/HBoxContainer3/BetterMine")
+	Tooltipp_more_miners = get_node("../../../Build_Menue/Build_HUD/Build_Bar/HBoxContainer3/increaseNumberOfMiners")
+	Tooltipp_better_ore = get_node("../../../Build_Menue/Build_HUD/Build_Bar/HBoxContainer3/BetterMine")
 	mats = 0
 	number_of_Miners = 1
 	quality_of_Ore = 1
@@ -31,7 +31,7 @@ func _ready():
 	Tooltipp_better_ore.change_text("Verbessere das geförderte Material(" + str(cost_quality_of_Ore) +")")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	wave_state = get_node("../../Camera2D/Enemies_left").get_wave_state()
+	wave_state = get_node("../Enemies_left").get_wave_state()
 	if wave_state == "Ende" && once_per_wave == 0:
 		mats = int(mats  + (10 * number_of_Miners*quality_of_Ore))
 		once_per_wave = 1

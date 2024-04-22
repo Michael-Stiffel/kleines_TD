@@ -86,7 +86,7 @@ func intialfuck(identifier):
 
 func _on_popup_menu_index_pressed(index):
 	var map_node = get_node("../../../Map_Node/TileMap")
-	mats = get_node("../../../Camera2D/Material")
+	mats = get_node("../../../../CanvasLayer/Control/Material")
 	match PopupIds[index]:
 		"UP_ATK":
 			var zu_teuer = mats.to_expensive(cost_for_ATK)

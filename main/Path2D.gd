@@ -29,9 +29,9 @@ func set_enemys_in_wave(value):
 	enemys_in_wave = enemys_in_wave - value
 	
 func get_enemys_in_wave():
-	get_node("../../Camera2D/Enemies_left").set_enemies_left(enemys_in_wave)
+	get_node("../../../CanvasLayer/Control/Enemies_left").set_enemies_left(enemys_in_wave)
 	if enemys_in_wave == 0:
-		get_node("../../Camera2D/Enemies_left").set_wave_state("Ende")
+		get_node("../../../CanvasLayer/Control/Enemies_left").set_wave_state("Ende")
 	return enemys_in_wave
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,7 +42,7 @@ func _process(_delta):
 	if READY && enemys_in_wave == 0 :
 		READY = false
 		start_next_wave()
-		get_node("../../Camera2D/Enemies_left").set_wave_state("Start")
+		get_node("../../../CanvasLayer/Control/Enemies_left").set_wave_state("Start")
 
 
 func _on_tile_map_path_calculated(Message):
@@ -64,7 +64,7 @@ func start_next_wave():
 func retrieve_wave_data():
 	current_wave+= 1
 	var wave_data = gimme_the_waves()
-	get_node("../../Camera2D/Current_Wave").set_new_wave(current_wave)
+	get_node("../../../CanvasLayer/Control/Current_Wave").set_new_wave(current_wave)
 	enemys_in_wave = wave_data.size()
 	return wave_data
 
@@ -83,7 +83,7 @@ func gimme_the_waves():
 	var choosen_enemy = enemystats[enemy_tier_class].keys()[randi_range(0, (keys.size()-1))]
 	var cost_of_enemy = enemystats[enemy_tier_class][choosen_enemy]["cost"]
 	var number_of_enemys = int((current_wave*10)/cost_of_enemy)
-	get_node("../../Camera2D/Enemies_left").set_initial_enemies_left(number_of_enemys)
+	get_node("../../../CanvasLayer/Control/Enemies_left").set_initial_enemies_left(number_of_enemys)
 	var da_waves = []
 	for  i in number_of_enemys:
 		da_waves.append(choosen_enemy)

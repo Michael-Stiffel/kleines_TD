@@ -9,26 +9,33 @@ shader = ExtResource("2_u4uhj")
 shader_parameter/amount = 1.0
 
 [node name="Control" type="CanvasLayer"]
+layer = 4
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_dapnb")
 
 [node name="ColorRect" type="ColorRect" parent="Control"]
 material = SubResource("ShaderMaterial_ybcjs")
-layout_mode = 0
-offset_left = -64.0
-offset_top = -64.0
-offset_right = 2368.0
-offset_bottom = 1344.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="Control"]
-layout_mode = 0
-offset_right = 2304.0
-offset_bottom = 1280.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer"]
 custom_minimum_size = Vector2(500, 0)

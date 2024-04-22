@@ -70,17 +70,116 @@ sources/6 = SubResource("TileSetAtlasSource_w6dd7")
 
 [sub_resource type="Curve2D" id="Curve2D_qotbj"]
 
-[node name="Main" type="Node2D"]
-script = ExtResource("1_lyh7m")
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 4
+mouse_filter = 2
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Build_Menue" parent="." instance=ExtResource("13_orkcu")]
+layer = 3
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Material" parent="CanvasLayer/Control" instance=ExtResource("16_r2dl8")]
+z_index = 3
+custom_minimum_size = Vector2(-8.135, 128)
+layout_mode = 0
+offset_left = -253.56
+offset_top = 64.0
+offset_right = -61.56
+offset_bottom = 192.0
+
+[node name="Tech_Level" type="Label" parent="CanvasLayer/Control"]
+z_index = 3
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = -253.56
+offset_top = 384.0
+offset_right = -61.56
+offset_bottom = 512.0
+text = "TECH"
+horizontal_alignment = 1
+script = ExtResource("3_qeufm")
+
+[node name="HP_Count" parent="CanvasLayer/Control" instance=ExtResource("11_c112h")]
+unique_name_in_owner = true
+z_index = 3
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = -253.56
+offset_top = 128.0
+offset_right = -61.56
+offset_bottom = 256.0
+text = "HP"
+vertical_alignment = 0
+
+[node name="Current_Wave" type="Label" parent="CanvasLayer/Control"]
+z_index = 3
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = -253.56
+offset_top = 192.0
+offset_right = -61.56
+offset_bottom = 320.0
+size_flags_horizontal = 4
+text = "WAVE"
+horizontal_alignment = 1
+script = ExtResource("4_ywn35")
+
+[node name="Enemies_left" type="Label" parent="CanvasLayer/Control"]
+z_index = 3
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = -253.56
+offset_top = 256.0
+offset_right = -61.56
+offset_bottom = 384.0
+theme_override_colors/font_color = Color(0, 1, 0, 1)
+text = "JAJA Gegner 
+"
+horizontal_alignment = 1
+script = ExtResource("5_23mlh")
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control"]
 z_index = 1
-position = Vector2(2080, 640)
+position = Vector2(-128, 704)
 texture = ExtResource("2_jkhnt")
 
-[node name="Map_Node" type="Node2D" parent="."]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 11
+anchor_left = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -341.69
+offset_right = 45.325
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0.00392157, 0.113725, 0.560784, 1)
 
-[node name="TileMap" type="TileMap" parent="Map_Node"]
+[node name="Pause_Menu" parent="." instance=ExtResource("12_ynpeo")]
+visible = false
+
+[node name="Main" type="Node2D" parent="."]
+script = ExtResource("1_lyh7m")
+
+[node name="Map_Node" type="Node2D" parent="Main"]
+
+[node name="TileMap" type="TileMap" parent="Main/Map_Node"]
 tile_set = SubResource("TileSet_dq8oi")
 format = 2
 layer_0/name = "Hinten"
@@ -92,96 +191,47 @@ layer_2/z_index = 1
 layer_2/tile_data = PackedInt32Array()
 script = ExtResource("5_xpysc")
 
-[node name="TowerLine" type="Line2D" parent="Map_Node/TileMap"]
+[node name="TowerLine" type="Line2D" parent="Main/Map_Node/TileMap"]
 
-[node name="Path2D" type="Path2D" parent="Map_Node"]
+[node name="Path2D" type="Path2D" parent="Main/Map_Node"]
 show_behind_parent = true
 top_level = true
 curve = SubResource("Curve2D_qotbj")
 script = ExtResource("9_d2r05")
 
-[node name="Line2D" type="Line2D" parent="Map_Node/Path2D"]
+[node name="Line2D" type="Line2D" parent="Main/Map_Node/Path2D"]
 texture_repeat = 2
 width = 16.0
 default_color = Color(1, 0.0745098, 0.0745098, 1)
 texture_mode = 1
 antialiased = true
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="Main"]
 z_index = 2
 position = Vector2(-64, -64)
 anchor_mode = 0
 
-[node name="Pause_Menu" parent="Camera2D" instance=ExtResource("12_ynpeo")]
-visible = false
-
-[node name="Tech_Level" type="Label" parent="Camera2D"]
-custom_minimum_size = Vector2(0, 128)
-offset_left = 2016.31
-offset_top = 320.0
-offset_right = 2208.31
-offset_bottom = 448.0
-text = "TECH"
-horizontal_alignment = 1
-script = ExtResource("3_qeufm")
-
-[node name="HP_Count" parent="Camera2D" instance=ExtResource("11_c112h")]
-custom_minimum_size = Vector2(0, 128)
-offset_left = 2016.31
-offset_right = 2208.31
-offset_bottom = 192.0
-text = "HP"
-vertical_alignment = 0
-
-[node name="Current_Wave" type="Label" parent="Camera2D"]
-custom_minimum_size = Vector2(0, 128)
-offset_left = 2016.31
-offset_top = 128.0
-offset_right = 2208.31
-offset_bottom = 256.0
-size_flags_horizontal = 4
-text = "WAVE"
-horizontal_alignment = 1
-script = ExtResource("4_ywn35")
-
-[node name="Enemies_left" type="Label" parent="Camera2D"]
-custom_minimum_size = Vector2(0, 128)
-offset_left = 2016.31
-offset_top = 192.0
-offset_right = 2208.31
-offset_bottom = 320.0
-theme_override_colors/font_color = Color(0, 1, 0, 1)
-text = "JAJA Gegner 
-"
-horizontal_alignment = 1
-script = ExtResource("5_23mlh")
-
-[node name="Material" parent="Camera2D" instance=ExtResource("16_r2dl8")]
-
-[node name="Build_Menue" parent="Camera2D" instance=ExtResource("13_orkcu")]
-layer = 0
-
-[node name="GameOverScreen" parent="." instance=ExtResource("12_sxnb2")]
+[node name="GameOverScreen" parent="Main" instance=ExtResource("12_sxnb2")]
 layer = 2
 visible = false
 
-[node name="Audio" type="Node" parent="."]
+[node name="Audio" type="Node" parent="Main"]
 
-[node name="Tower_shoot" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Tower_shoot" type="AudioStreamPlayer2D" parent="Main/Audio"]
 stream = ExtResource("20_7c1x6")
 volume_db = -15.559
 pitch_scale = 1.96
 bus = &"SFX"
 
-[node name="Impact_sound" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Impact_sound" type="AudioStreamPlayer2D" parent="Main/Audio"]
 stream = ExtResource("21_rlfls")
 volume_db = -3.93
 pitch_scale = 1.72
 bus = &"SFX"
 
-[node name="Background_Music" type="AudioStreamPlayer2D" parent="Audio"]
+[node name="Background_Music" type="AudioStreamPlayer2D" parent="Main/Audio"]
 stream = ExtResource("22_xbl0q")
 volume_db = 24.0
 bus = &"Music"
 
-[connection signal="PathCalculated" from="Map_Node/TileMap" to="Map_Node/Path2D" method="_on_tile_map_path_calculated"]
+[connection signal="PathCalculated" from="Main/Map_Node/TileMap" to="Main/Map_Node/Path2D" method="_on_tile_map_path_calculated"]
