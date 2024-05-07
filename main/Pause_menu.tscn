@@ -1,8 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://dof2wgjkshw2s"]
+[gd_scene load_steps=7 format=3 uid="uid://dof2wgjkshw2s"]
 
 [ext_resource type="Script" path="res://Pause_menu.gd" id="1_dapnb"]
 [ext_resource type="Shader" path="res://Pause_menu.gdshader" id="2_u4uhj"]
 [ext_resource type="Script" path="res://VolumeSlider.gd" id="3_3x1r6"]
+[ext_resource type="Script" path="res://WindowMode.gd" id="3_k7elw"]
+[ext_resource type="Script" path="res://ResolutionMode.gd" id="3_navas"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_ybcjs"]
 shader = ExtResource("2_u4uhj")
@@ -61,20 +63,58 @@ text = "Quit to Desktop
 "
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="Control/MarginContainer"]
+visible = false
 custom_minimum_size = Vector2(256, 0)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 
-[node name="Master Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
-visible = false
+[node name="WindowMode" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer2"]
 layout_mode = 2
+theme_override_constants/separation = 50
+script = ExtResource("3_k7elw")
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer2/WindowMode"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Window Mode"
+
+[node name="VSeparator" type="VSeparator" parent="Control/MarginContainer/VBoxContainer2/WindowMode"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Control/MarginContainer/VBoxContainer2/WindowMode"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+allow_reselect = true
+
+[node name="ResolutionMode" type="HBoxContainer" parent="Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_constants/separation = 50
+script = ExtResource("3_navas")
+
+[node name="Label" type="Label" parent="Control/MarginContainer/VBoxContainer2/ResolutionMode"]
+custom_minimum_size = Vector2(128, 0)
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Auflösung"
+
+[node name="VSeparator" type="VSeparator" parent="Control/MarginContainer/VBoxContainer2/ResolutionMode"]
+layout_mode = 2
+
+[node name="OptionButton" type="OptionButton" parent="Control/MarginContainer/VBoxContainer2/ResolutionMode"]
+custom_minimum_size = Vector2(128, 32)
+layout_mode = 2
+allow_reselect = true
+
+[node name="Master Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Master Volume"
 horizontal_alignment = 1
 
 [node name="Master Volume Slider" type="HSlider" parent="Control/MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 max_value = 1.0
 step = 0.05
@@ -82,14 +122,13 @@ script = ExtResource("3_3x1r6")
 bus_name = "Master"
 
 [node name="Music Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
-visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Music Volume"
 horizontal_alignment = 1
 
 [node name="Music Volume Slider" type="HSlider" parent="Control/MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 max_value = 1.0
 step = 0.05
@@ -97,14 +136,13 @@ script = ExtResource("3_3x1r6")
 bus_name = "Music"
 
 [node name="SFX Volume" type="Label" parent="Control/MarginContainer/VBoxContainer2"]
-visible = false
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "SFX Volume"
 horizontal_alignment = 1
 
 [node name="SFX Volume Slider" type="HSlider" parent="Control/MarginContainer/VBoxContainer2"]
 unique_name_in_owner = true
-visible = false
 layout_mode = 2
 max_value = 1.0
 step = 0.05
@@ -112,7 +150,6 @@ script = ExtResource("3_3x1r6")
 bus_name = "SFX"
 
 [node name="Back" type="Button" parent="Control/MarginContainer/VBoxContainer2"]
-visible = false
 layout_mode = 2
 text = "Back to Menue"
 

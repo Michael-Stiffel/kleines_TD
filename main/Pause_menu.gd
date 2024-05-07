@@ -5,9 +5,13 @@ extends Control
 @onready var master_slider = %"Master Volume Slider"
 @onready var music_slider = %"Music Volume Slider"
 @onready var sfx_slider = %"SFX Volume Slider"
+@onready var window_mode = $MarginContainer/VBoxContainer2/WindowMode/OptionButton
+@onready var resulution = $MarginContainer/VBoxContainer2/ResolutionMode/OptionButton
 var user_prefs: UserPreferences
 
+
 func _ready():
+	$MarginContainer/VBoxContainer2.visible = false
 	user_prefs = UserPreferences.load_or_create()
 	if sfx_slider:
 		sfx_slider.value = user_prefs.sfx_audio_level
@@ -15,7 +19,10 @@ func _ready():
 		music_slider.value = user_prefs.music_audio_level
 	if master_slider:
 		master_slider.value = user_prefs.master_audio_level
-
+	if window_mode:
+		window_mode.selected = user_prefs.window_mode
+	if resulution:
+		resulution.selected = user_prefs.resulution
 func _on_resume_pressed():
 	main_scene.pauseMenu() 
 
@@ -25,17 +32,9 @@ func _on_quit_pressed():
 
 
 func _on_option_pressed():
-	$MarginContainer/VBoxContainer/Resume.visible = false
-	$MarginContainer/VBoxContainer/QuitToMainMenue.visible = false
-	$MarginContainer/VBoxContainer/QuitToDesktop.visible = false
-	$MarginContainer/VBoxContainer/Option.visible = false
-	$"MarginContainer/VBoxContainer2/Master Volume".visible = true
-	$"MarginContainer/VBoxContainer2/Master Volume Slider".visible = true
-	$"MarginContainer/VBoxContainer2/Music Volume".visible = true
-	$"MarginContainer/VBoxContainer2/Music Volume Slider".visible = true
-	$"MarginContainer/VBoxContainer2/SFX Volume".visible = true
-	$"MarginContainer/VBoxContainer2/SFX Volume Slider".visible = true
-	$"MarginContainer/VBoxContainer2/Back".visible = true
+	$MarginContainer/VBoxContainer.visible = false
+	$MarginContainer/VBoxContainer2.visible = true
+	
 	 
 
 
@@ -44,18 +43,12 @@ func _on_back_pressed():
 		user_prefs.sfx_audio_level = sfx_slider.value
 		user_prefs.music_audio_level = music_slider.value
 		user_prefs.master_audio_level = master_slider.value
+		user_prefs.window_mode = window_mode.selected
+		user_prefs.resulution = resulution.selected
 		user_prefs.save()
-	$MarginContainer/VBoxContainer/Resume.visible = true
-	$MarginContainer/VBoxContainer/QuitToMainMenue.visible = true
-	$MarginContainer/VBoxContainer/QuitToDesktop.visible = true
-	$MarginContainer/VBoxContainer/Option.visible = true
-	$"MarginContainer/VBoxContainer2/Master Volume".visible = false
-	$"MarginContainer/VBoxContainer2/Master Volume Slider".visible = false
-	$"MarginContainer/VBoxContainer2/Music Volume".visible = false
-	$"MarginContainer/VBoxContainer2/Music Volume Slider".visible = false
-	$"MarginContainer/VBoxContainer2/SFX Volume".visible = false
-	$"MarginContainer/VBoxContainer2/SFX Volume Slider".visible = false
-	$"MarginContainer/VBoxContainer2/Back".visible = false
+	$MarginContainer/VBoxContainer2.visible = false
+	$MarginContainer/VBoxContainer.visible = true
+	
 	
 
 func _on_quit_to_main_menue_pressed():
