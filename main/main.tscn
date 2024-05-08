@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=3 uid="uid://r8osy4i3w4k"]
+[gd_scene load_steps=34 format=3 uid="uid://r8osy4i3w4k"]
 
 [ext_resource type="Texture2D" uid="uid://m8m4oigoxqgq" path="res://res/PNG/Grass.png" id="1_7vqce"]
 [ext_resource type="Texture2D" uid="uid://cmbpgyolfrj4s" path="res://res/PNG/Start.png" id="1_fs2nw"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://dof2wgjkshw2s" path="res://Pause_menu.tscn" id="12_ynpeo"]
 [ext_resource type="PackedScene" uid="uid://b58sgtyvwbkoe" path="res://build_menue.tscn" id="13_orkcu"]
 [ext_resource type="PackedScene" uid="uid://3w46rerce682" path="res://material.tscn" id="16_r2dl8"]
+[ext_resource type="Texture2D" uid="uid://dllphhf0ptr2d" path="res://res/PNG/Stone_Baricade.png" id="17_5t4ob"]
 [ext_resource type="AudioStream" uid="uid://cne3nsdckihgx" path="res://audio/Bow_catapult_shoot.mp3" id="20_7c1x6"]
 [ext_resource type="AudioStream" uid="uid://8ped2r075c7t" path="res://audio/rock_impact.mp3" id="21_rlfls"]
 [ext_resource type="AudioStream" uid="uid://oxwrfanq55oc" path="res://audio/Background_music.mp3" id="22_xbl0q"]
@@ -58,6 +59,11 @@ texture = ExtResource("7_wh6uy")
 texture_region_size = Vector2i(64, 64)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yotnn"]
+texture = ExtResource("17_5t4ob")
+texture_region_size = Vector2i(64, 64)
+0:0/0 = 0
+
 [sub_resource type="TileSet" id="TileSet_dq8oi"]
 tile_size = Vector2i(64, 64)
 sources/1 = SubResource("TileSetAtlasSource_qgdj1")
@@ -67,6 +73,7 @@ sources/4 = SubResource("TileSetAtlasSource_gw20l")
 sources/0 = SubResource("TileSetAtlasSource_y77m0")
 sources/5 = SubResource("TileSetAtlasSource_3m5xr")
 sources/6 = SubResource("TileSetAtlasSource_w6dd7")
+sources/7 = SubResource("TileSetAtlasSource_yotnn")
 
 [sub_resource type="Curve2D" id="Curve2D_qotbj"]
 

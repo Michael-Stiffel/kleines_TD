@@ -88,4 +88,4 @@ Ehrlich wenn das hier erreicht, wird dann bin ich schon echt erstaunt.
   - [x] Um alle Elemente Container Elemente machen, an die sich die Unterelemente anordnen können
   - [x] Bildschirmäuflösung im Optionsmenu einführen
   - [x] Fullscreen und WindowedMode unterschied schauen und eventuell was dafür einführen?
-
+-[x] Mehr Stuff auf der Karte(Felsen)
