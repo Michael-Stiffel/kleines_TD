@@ -39,7 +39,7 @@ Statt das man spezifische Angriffe schickt geht es darum die Wellen zu besiegen 
 
 Ehrlich wenn das hier erreicht, wird dann bin ich schon echt erstaunt.
 
-- [ ] Mehr Stuff auf der Karte(Felsen, Kartoffeln, Kontrollpunkte, Booster, vielleicht fucking Portale)
+- [ ] Mehr Stuff auf der Karte( Kartoffeln, Kontrollpunkte, Booster, vielleicht fucking Portale)
 - [ ] mehr Upgrade Möglichkeiten für die Türme und Völker für den Spieler (Turret Overhaul mit Larry)
 - [ ] Anfangen einen Multiplayer zu cavemanen 
 - [ ] Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
@@ -84,8 +84,9 @@ Ehrlich wenn das hier erreicht, wird dann bin ich schon echt erstaunt.
 - [x] ein bisschen mukke und SFX 
 - [x] Dann einmal gucken, ob das überhaupt Spaß macht XD, falls das so is dann Phase 2
 - [x] Soundmenüs und Speichern der Soundeinstellungen 
+- [x] Mehr Stuff auf der Karte(Felsen)
 - [x] Für alle Bildschirmauflösungen anpassen
   - [x] Um alle Elemente Container Elemente machen, an die sich die Unterelemente anordnen können
   - [x] Bildschirmäuflösung im Optionsmenu einführen
   - [x] Fullscreen und WindowedMode unterschied schauen und eventuell was dafür einführen?
--[x] Mehr Stuff auf der Karte(Felsen)
+
