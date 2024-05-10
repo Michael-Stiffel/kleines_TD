@@ -112,7 +112,12 @@ func calculatePath():
 			if x== 0 || y == 0 || x== gx-1 || y== gy-1 :
 				set_cell(0,Vector2(x,y),6, Vector2i(0,0),0);	
 			else:
-				set_cell(0,Vector2(x,y),1, Vector2i(0,0),0);
+				match Dic[str(Vector2(x,y))]["Type"]:
+					"Grass":
+						set_cell(0,Vector2(x,y),1, Vector2i(0,0),0);
+					"Stone-Baricade":
+						set_cell(0,Vector2(x,y),7, Vector2i(0,0),0);
+				
 
 
 	for id in id_path:
@@ -139,7 +144,7 @@ func setStonesOnMap():
 					"Koor": str(Vector2(randomX,randomY)),
 					"Buildable" : false 
 					}	
-				set_cell(2,Vector2(randomX,randomY),7, Vector2i(0,0),0);
+				set_cell(0,Vector2(randomX,randomY),7, Vector2i(0,0),0);
 		else:
 			numberOfStoneBaricades +1	
 	#Das +1 agiert als reroll, sollte also irgendedetwas anderes als ein Grasblock als Ziel gewählt 

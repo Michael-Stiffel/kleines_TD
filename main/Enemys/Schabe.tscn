@@ -9,11 +9,14 @@ radius = 12.11
 height = 40.97
 
 [node name="Schabe" type="PathFollow2D"]
+z_index = 3
 script = ExtResource("1_1bqcs")
 
 [node name="Healthbar" parent="." instance=ExtResource("1_t7ds0")]
+z_index = 3
 
 [node name="Schabe" type="Node2D" parent="."]
+z_index = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Schabe"]
 

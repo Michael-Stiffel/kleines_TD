@@ -9,14 +9,17 @@ radius = 13.25
 height = 42.7
 
 [node name="Golem" type="PathFollow2D"]
+z_index = 3
 script = ExtResource("1_ur4fj")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_f0oh1")]
+z_index = 3
 texture_filter = 1
 offset_top = -32.0
 offset_bottom = -26.0
 
 [node name="Golem" type="Node2D" parent="."]
+z_index = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Golem"]
 scale = Vector2(0.9, 0.9)

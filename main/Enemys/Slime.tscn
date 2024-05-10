@@ -8,15 +8,19 @@
 radius = 17.38
 
 [node name="Slime" type="PathFollow2D"]
+z_index = 3
 script = ExtResource("1_scqbh")
 
 [node name="Healthbar" parent="." instance=ExtResource("2_go8lg")]
+z_index = 3
 
 [node name="Slime" type="Node2D" parent="."]
+z_index = 3
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="Slime"]
 
 [node name="Sprite2D" type="Sprite2D" parent="Slime/CharacterBody2D"]
+z_index = 3
 texture_filter = 1
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_j5bp5")
