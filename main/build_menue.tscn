@@ -51,6 +51,7 @@ size_flags_vertical = 4
 alignment = 1
 
 [node name="Playbutton" type="TextureButton" parent="Build_HUD/Build_Bar/HBoxContainer2" groups=["Startbutton"]]
+texture_filter = 1
 custom_minimum_size = Vector2(256.895, 62.95)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -97,14 +98,17 @@ theme_override_constants/separation = 16
 alignment = 1
 
 [node name="increaseNumberOfMiners" parent="Build_HUD/Build_Bar/HBoxContainer3" groups=["Updates"] instance=ExtResource("8_b72vg")]
+texture_filter = 1
 layout_mode = 2
 script = ExtResource("12_omld0")
 
 [node name="BetterMine" parent="Build_HUD/Build_Bar/HBoxContainer3" groups=["Updates"] instance=ExtResource("9_x5e2j")]
+texture_filter = 1
 layout_mode = 2
 script = ExtResource("14_7mtbm")
 
 [node name="UpdateTech" parent="Build_HUD/Build_Bar/HBoxContainer3" groups=["Updates"] instance=ExtResource("10_f4ehb")]
+texture_filter = 1
 layout_mode = 2
 script = ExtResource("16_8jxoe")
 

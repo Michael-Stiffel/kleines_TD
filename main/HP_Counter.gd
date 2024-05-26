@@ -19,11 +19,11 @@ func _process(_delta):
 		set("theme_override_colors/font_color",Color("ff0000"))
 	
 	
-	if HP <= 0:
-		var gameover = GameOverScreen.instantiate()
-		add_child(gameover)
-		gameover.set_title(false)
-		get_tree().paused = true
+	#if HP <= 0:
+		#var gameover = GameOverScreen.instantiate()
+		#add_child(gameover)
+		#gameover.set_title(false)
+		#get_tree().paused = true
 		
 	
 
@@ -36,3 +36,5 @@ func _on_path_follow_2d_get_hp_damage(Damage):
 	#print(HP)
 	#print(Damage)
 	text ="HP:" + str(HP)
+func get_HP():
+	return HP;
