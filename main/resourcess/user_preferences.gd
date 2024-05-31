@@ -8,6 +8,7 @@ class_name UserPreferences extends Resource
 @export var window_mode_value = DisplayServer.WINDOW_MODE_FULLSCREEN
 @export var window_mode_flag = false
 @export var resulution_value = Vector2i(2560, 1080)
+@export var Nation = ""
 func save() -> void:
 	ResourceSaver.save(self, "user://user_prefs.tres")
 

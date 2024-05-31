@@ -24,7 +24,7 @@ func _ready():
 	DisplayServer.window_set_size(user_prefs.resulution_value)
 
 func _on_play_pressed():
-	get_tree().change_scene_to_file("res://main.tscn")
+	get_tree().change_scene_to_file("res://avatar_wahl_szene.tscn")
 
 
 func _on_options_pressed():
