@@ -4,9 +4,10 @@ var stats = preload("res://stats.tscn")
 var towerData = stats.instantiate().get_tower_data()
 var drag_tower 
 var range_texture
+var Trange
 
 func  set_tower_preview(build_type, mouse_position):
-	var Trange = towerData[build_type]["range"]
+	Trange = towerData[build_type]["range"]
 	drag_tower = load("res://"+ build_type +".tscn").instantiate()
 	drag_tower.set_name("Drag_Tower")
 	drag_tower.modulate = Color("ad54ff3c");
@@ -38,6 +39,12 @@ func update_tower_preview(new_position, color):
 	if get_node("TowerPreview/Drag_Tower").modulate != Color(color):
 		get_node("TowerPreview").modulate = Color(color)
 		get_node("TowerPreview/Sprite2D").modulate = Color(color)
+	print(Trange)
+	Trange = get_node("TowerPreview/Drag_Tower").Trange
+	var scaling = Trange/ 300.0
+	get_node("TowerPreview/Sprite2D").scale = Vector2(scaling,scaling)
+	
+		
 
 func red_flash():
 

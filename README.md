@@ -85,6 +85,8 @@ Ehrlich wenn das hier erreicht, wird dann bin ich schon echt erstaunt.
 - [x] Dann einmal gucken, ob das überhaupt Spaß macht XD, falls das so is dann Phase 2
 - [x] Soundmenüs und Speichern der Soundeinstellungen 
 - [x] Mehr Stuff auf der Karte(Felsen)
+- [x] Mehr Stuff auf der Karte(Booster)
+- [x] Man kann sein Volk wählen(biher nur den Avatar)
 - [x] Für alle Bildschirmauflösungen anpassen
   - [x] Um alle Elemente Container Elemente machen, an die sich die Unterelemente anordnen können
   - [x] Bildschirmäuflösung im Optionsmenu einführen

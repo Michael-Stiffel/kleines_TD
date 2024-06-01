@@ -7,7 +7,7 @@
 resource_local_to_scene = true
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_1khpb"]
-radius = 43.55
+radius = 27.55
 
 [node name="TurretT1" type="Node2D"]
 script = ExtResource("1_bk6jg")

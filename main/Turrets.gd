@@ -22,9 +22,14 @@ var mats_return_for_ATK = 0
 var cost_for_ATK = 1
 var cost_for_ASP = 1
 var cost_for_tower
+var Number_of_ATK_upgrades = 0
+var Number_of_ASP_upgrades = 0
+var StartTdamage
+var StartTattackspeed
 @onready var shoot_sound = get_node("../../../Audio/Tower_shoot") 
-	
+var range_texture
 func _process(_delta):
+	self.get_node("Area2D/CollisionShape2D").get_shape().radius =  Trange
 	if enemy_array.size() != 0:
 		select_enemy()
 		if fire_ready:
@@ -69,6 +74,8 @@ func intialfuck(identifier):
 	self.get_node("Area2D/CollisionShape2D").get_shape().radius =  Trange
 	Tdamage = towerData[identifier]["damage"]
 	Tattackspeed = towerData[identifier]["attackspeed"]
+	StartTdamage = Tdamage
+	StartTattackspeed = Tattackspeed
 	cost_for_tower = towerData[identifier]["cost"]
 	cost_for_ATK = Tdamage
 	cost_for_ASP = int(Tattackspeed *20)
@@ -79,10 +86,12 @@ func intialfuck(identifier):
 	_pm.add_item("Delete")
 #	_pm.connect("id_pressed", _on_popup_menu_id_pressed.bind())
 	_pm.connect("index_pressed", _on_popup_menu_index_pressed.bind())
-	
+	_pm.connect("popup_hide", _on_hidden_popup.bind())
 
 
-
+func _on_hidden_popup():
+	if(self.get_node(str(range_texture))):
+		self.remove_child(range_texture)
 
 func _on_popup_menu_index_pressed(index):
 	var map_node = get_node("../../../Map_Node/TileMap")
@@ -94,7 +103,7 @@ func _on_popup_menu_index_pressed(index):
 				mats.buy_shit(cost_for_ATK)
 				mats_return_for_ATK = mats_return_for_ATK +cost_for_ATK
 				upgrade_ATK(1)
-				cost_for_ATK = Tdamage 
+				cost_for_ATK = (StartTdamage+ Number_of_ATK_upgrades) 
 				_pm.set_item_text(PopupIds.find("ATK_TEXT"), "ATK: " + str(Tdamage)) 
 				_pm.set_item_text(index, "Upgrade ATK" + "(" + str(cost_for_ATK) + ")") 
 		"UP_ASP":
@@ -103,7 +112,7 @@ func _on_popup_menu_index_pressed(index):
 				mats.buy_shit(cost_for_ASP)
 				mats_return_for_ASP = mats_return_for_ASP +cost_for_ASP
 				upgrade_ASP(0.25)
-				cost_for_ASP = int(Tattackspeed *20)
+				cost_for_ASP = int((StartTattackspeed+(Number_of_ASP_upgrades * 0.25))  *20)
 				_pm.set_item_text(PopupIds.find("ASP_TEXT"), "ASP: " + str(Tattackspeed)) 
 				_pm.set_item_text(index, "Upgrade ASP" + "(" + str(cost_for_ASP) + ")" ) 
 		"DEL":
@@ -113,17 +122,32 @@ func _on_popup_menu_index_pressed(index):
 			mats_return = mats_return_for_ASP + mats_return_for_ATK + cost_for_tower
 			mats.sell_shit(mats_return) 
 			self.queue_free()
+			
 
 func _on_area_2d_input_event(_viewport, event, _shape_idx):
 	if (event.is_action_released("ui_cancel")):
 		last_mouse_position = get_global_mouse_position()
+		_pm.set_item_text(PopupIds.find("ASP_TEXT"), "ASP: " + str(Tattackspeed)) 
+		_pm.set_item_text(PopupIds.find("ATK_TEXT"), "ATK: " + str(Tdamage)) 
+		range_texture =  Sprite2D.new()	
+		range_texture.position = Vector2(64,64)
+		self.get_node("Area2D/CollisionShape2D").get_shape().radius =  Trange
+		var scaling = Trange/ 300.0
+		range_texture.scale = Vector2(scaling,scaling)
+		var texture = load("res://res/PNG/range_overlay.png")
+		range_texture.texture = texture
+		range_texture.modulate = Color("ad54ff3c")
+		self.add_child(range_texture)
 		_pm.popup(Rect2(last_mouse_position.x, last_mouse_position.y, 64, 64))
+		
 		
 
 
 func upgrade_ATK(value):
-		Tdamage = Tdamage + value
+	Tdamage = Tdamage + value
+	Number_of_ATK_upgrades=+1
 		
 		
 func upgrade_ASP(value):
 	Tattackspeed = Tattackspeed + value
+	Number_of_ASP_upgrades=+1

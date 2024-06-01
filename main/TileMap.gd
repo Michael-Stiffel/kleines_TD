@@ -62,6 +62,7 @@ func _ready():
 	end_cell = Map_Marker_Start_and_Goal[1];
 	setStonesOnMap();
 	calculatePath();
+	addBoosters()
 	##TODO: Now set in the extras like Stones, Barikades, Boosters etc.
 
 	
@@ -79,7 +80,7 @@ func _process(_delta):
 		#"print(Dic[str(tile)])"
 		#print(tile)
 		#print(astar_grid.is_point_solid(Vector2i(tile)));
-		print(Dic[str(tile)])
+		#print(Dic[str(tile)])
 		
 
 func setGoalAndStart(x,y,_astar_grid):
@@ -151,4 +152,15 @@ func setStonesOnMap():
 	#werden dann wird der Nummer an Baricades einer hinzugefügt und sonst nichts getan
 		
 		
-	
+
+func addBoosters():
+	var numberOfTiles = (GridSizeX-2) * (GridSizeY-2)
+	var numberOfBoosters = randi_range(1, int(numberOfTiles/50));
+	for i in numberOfBoosters:
+		var booster = load("res://booster.tscn").instantiate()
+		var randomX = randi_range(1,GridSizeX-2)
+		var randomY = randi_range(1,GridSizeY-2)
+		var current_tile = Vector2i(randomX,randomY)
+		var tile_position = self.map_to_local(current_tile)
+		booster.set_position(tile_position)
+		self.add_child(booster,true)	
