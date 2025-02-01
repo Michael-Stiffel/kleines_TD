@@ -39,7 +39,7 @@ Statt das man spezifische Angriffe schickt geht es darum die Wellen zu besiegen 
 
 Ehrlich wenn das hier erreicht, wird dann bin ich schon echt erstaunt.
 
-- [ ] Mehr Stuff auf der Karte( Kartoffeln, Kontrollpunkte, Booster, vielleicht fucking Portale)
+- [ ] Mehr Stuff auf der Karte( Kartoffeln, Kontrollpunkte,  vielleicht fucking Portale)
 - [ ] mehr Upgrade Möglichkeiten für die Türme und Völker für den Spieler (Turret Overhaul mit Larry)
 - [ ] Anfangen einen Multiplayer zu cavemanen 
 - [ ] Modus 2 hat prio und erst wenn der Funtzt dann können wir über Modus 1 nachdenken
